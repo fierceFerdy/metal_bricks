@@ -577,6 +577,11 @@ main {
   z-index: 2;
 }
 
+.highlight {
+  border: 1px solid #a42826;
+  background-color: rgba(248, 4, 4, 0.2);
+}
+
 @media screen and (min-width: 561px) {
   .showMobile {
     display: none !important;
@@ -616,12 +621,12 @@ main {
 .row {
   width: 100%;
   margin: 0 auto 0;
-  padding: 3rem;
+  padding: 2rem;
   position: relative;
 }
 @media screen and (max-width: 1400px) {
   .row {
-    padding: 2rem;
+    padding: 1rem;
   }
 }
 
@@ -644,6 +649,10 @@ main {
 #wrapper {
   padding: 10px;
   min-height: 90vh;
+}
+
+.gridCorrector {
+  margin: 0 -10px;
 }
 
 [class^=w-],
