@@ -1,0 +1,50 @@
+// ===================================================
+//                   General classes
+// ===================================================
+
+main {
+    max-width: 100vw;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+//=================================================
+// ------------ Responsive
+//=================================================
+.showMobile {
+    @media screen and (min-width: 561px) {
+        display: none !important;
+    }
+}
+
+.hideMobile {
+    @media screen and (max-width: 560px) {
+        display: none !important;
+    }
+}
+
+.showTablet {
+    @media screen and (min-width: 769px) {
+        display: none !important;
+    }
+}
+
+.hideTablet {
+    @media screen and (max-width: 769px) {
+        display: none !important;
+    }
+}
+
+.showTouch {
+    @media screen and (min-width: 1024px) {
+        display: none !important;
+    }
+}
+
+.hideTouch {
+    @media screen and (max-width: 1024px) {
+        display: none !important;
+    }
+}

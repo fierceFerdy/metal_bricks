@@ -1,0 +1,194 @@
+// html{
+//     font-size: calc(18px + (20 - 18) * ((100vw - 300px) / (1440 - 300)));
+//     @media screen and (min-width: 1440px){
+//         font-size: 20px;
+//     }
+// }
+html{
+    // font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1760 - 300)));
+    font-size: 20px;
+    @media screen and (min-width: 1760px){
+        font-size: 20px;
+    }
+}
+
+body {
+    background-color: $bgColour;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+}
+
+*::-moz-selection {
+    color: $white;
+    background: rgba(0,0,0,.7);
+}
+
+*::selection {
+    color: $white;
+    background: rgba(0,0,0,.7);
+}
+
+
+
+// ===================================================
+// ------------------ Text elements
+// ===================================================
+
+// ===================== Titles ======================
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    display: block;
+    font-family: $titleFont;
+    line-height: 1.2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0;
+	color: $black;
+
+    a {
+        text-decoration: none;
+        font-family: inherit;
+        font-size: inherit !important;
+        line-height: inherit;
+    }
+
+    strong{
+        font-weight: inherit !important;
+    }
+
+    & + p{
+        margin-top: .5rem;
+    }
+
+    & + ol,
+    & + p,
+    & + ul {
+        margin-top: .5rem;
+    }
+}
+
+h1{
+    font-size: 1.1rem;
+    font-weight: $bold;
+    margin-bottom: .5rem;
+}
+
+h2,
+legend  {
+	font-weight: $bold;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
+h3 {
+    font-size: .9rem;
+    margin-bottom: .5rem;
+	color: $black;
+	font-weight: $bold;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+
+
+// ==================== Broodtekst =====================
+input, li, p, a, address, td, th, ul, ol, label{
+    font-size: .7rem;
+    font-weight: $normal;
+    line-height: 1.3em;
+    letter-spacing: 0;
+    color: $black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $lowerFont;
+
+    a {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+		font-size: inherit;
+
+        &:hover{
+            color: $secondaryColour;
+            border-color: $secondaryColour;
+        }
+    }
+}
+
+span, i, address, em {
+	display: inline;
+	color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+p, ul, ol, figure{
+    & + h2, & + hgroup h2 {
+        margin-top: 2rem;
+    }
+
+    & + h3, & + hgroup h3 {
+        margin-top: 2rem;
+    }
+
+    & + h4, & + hgroup h4 {
+        margin-top: 2rem;
+    }
+}
+
+
+
+
+a {
+    font-weight: inherit;
+    font-size: .7rem;
+    cursor: pointer;
+    text-decoration: none;
+    @include transition();
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: .5rem;
+
+    & + p {
+        margin-top: .5rem;
+    }
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+pre{
+    padding: 5px;
+    background-color: $white;
+    border: 1px solid #ccc;
+	font-size: .65rem;
+	margin-bottom: 10px;
+
+	br{
+		display: none;
+	}
+}
+
+small {
+    font-size: 0.75em;
+
+    &.gray {
+        color: $lightGray;
+    }
+}
+
+b, strong {
+    font-weight: $bold;
+}

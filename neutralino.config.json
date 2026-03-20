@@ -40,7 +40,7 @@
       "center": true,
       "fullScreen": false,
       "alwaysOnTop": false,
-      "icon": "/resources/icons/appIcon.png",
+      "icon": "/src/icons/appIcon.png",
       "enableInspector": true,
       "borderless": false,
       "maximize": false,
@@ -57,7 +57,7 @@
       ]
     },
     "cloud": {
-      "url": "/resources/#cloud",
+      "url": "/src/#cloud",
       "nativeAllowList": [
         "app.*"
       ]
@@ -74,9 +74,9 @@
   },
   "cli": {
     "binaryName": "myfirstapp",
-    "resourcesPath": "/resources/",
+    "resourcesPath": "/src/",
     "extensionsPath": "/extensions/",
-    "clientLibrary": "/resources/js/neutralino.js",
+    "clientLibrary": "/src/js/neutralino.js",
     "binaryVersion": "6.5.0",
     "clientVersion": "6.5.0"
   }

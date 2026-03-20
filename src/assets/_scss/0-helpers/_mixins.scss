@@ -1,0 +1,75 @@
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+@mixin aspect-ratio($ratio) {
+    position: relative;
+
+    &:before {
+        content: "";
+        display: block;
+        padding-top: $ratio;
+    }
+
+    .ffContent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+@mixin transition($duration: 0.2s, $properties: all, $easing: ease-out) {
+    @if length($properties) > 1 {
+        transition-property: $properties;
+        transition-duration: $duration;
+        transition-timing-function: $easing;
+    } @else {
+        -webkit-transition: $properties $duration $easing;
+        -moz-transition: $properties $duration $easing;
+        -ms-transition: $properties $duration $easing;
+        -o-transition: $properties $duration $easing;
+        transition: $properties $duration $easing;
+    }
+}
+
+
+
+@mixin placeholder() {
+    &::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        @content;
+    }
+
+    &:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        opacity: 1;
+        @content;
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        opacity: 1;
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        @content;
+    }
+
+    &::-ms-input-placeholder {
+        /* Microsoft Edge */
+        @content;
+    }
+
+    &::placeholder {
+        opacity: 1;
+        @content;
+    }
+}

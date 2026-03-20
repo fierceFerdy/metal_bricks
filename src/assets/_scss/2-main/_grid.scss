@@ -1,0 +1,419 @@
+.row {
+    width: 100%;
+    margin: 0 auto 0;
+    padding: 3rem;
+    position: relative;
+
+    @media screen and (max-width: 1400px) {
+        padding: 2rem;
+    }
+}
+
+.contentWrapper {
+    max-width: $templateWidth;
+    margin: 0 auto;
+    // padding: 0 $desktopMargin;
+}
+
+.content {
+    max-width: $contentWidth;
+    margin: 0 auto;
+}
+
+#showGrid {
+    .row,
+    .contentWrapper,
+    .content {
+        border: 1px solid rgba(255, 0, 0, .1);
+    }
+}
+
+#wrapper {
+    padding: calc($padding/2);
+    min-height: 90vh;
+    // gap: $padding;
+}
+
+
+
+// ===================================================
+// GRID
+// ===================================================
+[class^='w-'],
+[class*='w-'] {
+    margin: 10px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.w-1\/2,
+.w-1\/3,
+.w-2\/3,
+.w-1\/4,
+.w-3\/4 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.w-1\/2 {
+    width: calc(50% - 20px);
+}
+
+.w-1\/3 {
+    width: calc(33.333333% - 20px);
+}
+
+.w-2\/3 {
+    width: calc(66.666666% - 20px);
+}
+
+.w-1\/4 {
+    width: calc(25% - 20px);
+}
+
+.w-3\/4 {
+    width: calc(75% - 20px);
+}
+
+.w-full {
+    width: calc(100% - 20px);
+}
+
+
+// ===================================================
+// FIFTHS
+// ===================================================
+.w-1\/5,
+.w-2\/5,
+.w-3\/5,
+.w-4\/5 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.w-1\/5 {
+    width: calc(20% - 20px);
+}
+
+.w-2\/5 {
+    width: calc(40% - 20px);
+}
+
+.w-3\/5 {
+    width: calc(60% - 20px);
+}
+
+.w-4\/5 {
+    width: calc(80% - 20px);
+}
+
+
+// ===================================================
+// EIGHTS
+// ===================================================
+.w-1\/8,
+.w-2\/8,
+.w-3\/8,
+.w-4\/8,
+.w-5\/8,
+.w-6\/8,
+.w-7\/8 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.w-1\/8 {
+    width: calc(12.5% - 20px);
+}
+
+.w-2\/8 {
+    width: calc(25% - 20px);
+}
+
+.w-3\/8 {
+    width: calc(37.5% - 20px);
+}
+
+.w-4\/8 {
+    width: calc(50% - 20px);
+}
+
+.w-5\/8 {
+    width: calc(62.5% - 20px);
+}
+
+.w-6\/8 {
+    width: calc(75% - 20px);
+}
+
+.w-7\/8 {
+    width: calc(87.5% - 20px);
+}
+
+
+
+
+// ===================================================
+// TWELFTHS
+// ===================================================
+.w-1\/12,
+.w-2\/12,
+.w-3\/12,
+.w-4\/12,
+.w-5\/12,
+.w-6\/12,
+.w-7\/12,
+.w-8\/12,
+.w-9\/12,
+.w-10\/12,
+.w-11\/12 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.w-1\/12 {
+    width: calc(8.333333% - 20px);
+}
+
+.w-2\/12 {
+    width: calc(16.666667% - 20px);
+}
+
+.w-3\/12 {
+    width: calc(25% - 20px);
+}
+
+.w-4\/12 {
+    width: calc(33.333333% - 20px);
+}
+
+.w-5\/12 {
+    width: calc(41.666667% - 20px);
+}
+
+.w-6\/12 {
+    width: calc(50% - 20px);
+}
+
+.w-7\/12 {
+    width: calc(58.333333% - 20px);
+}
+
+.w-8\/12 {
+    width: calc(66.666667% - 20px);
+}
+
+.w-9\/12 {
+    width: calc(75% - 20px);
+}
+
+.w-10\/12 {
+    width: calc(83.333333% - 20px);
+}
+
+.w-11\/12 {
+    width: calc(91.666667% - 20px);
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .md-full {
+        width: calc(100% - 20px);
+    }
+
+    .md\:w-1\/2,
+    .md\:w-1\/3,
+    .md\:w-2\/3,
+    .md\:w-1\/4,
+    .md\:w-1\/5 {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .md\:w-1\/2 {
+        width: calc(50% - 20px);
+    }
+
+    .md\:w-1\/3 {
+        width: calc(33.333333% - 20px);
+    }
+
+    .md\:w-2\/3 {
+        width: calc(66.666666% - 20px);
+    }
+
+    .md\:w-1\/4 {
+        width: calc(25% - 20px);
+    }
+
+    .md\:w-1\/5 {
+        width: calc(20% - 20px);
+    }
+
+
+    // Twelveths
+    // Twelveths
+    // Twelveths
+    .md\:w-1\/12,
+    .md\:w-2\/12,
+    .md\:w-3\/12,
+    .md\:w-4\/12,
+    .md\:w-5\/12,
+    .md\:w-6\/12,
+    .md\:w-7\/12,
+    .md\:w-8\/12,
+    .md\:w-9\/12,
+    .md\:w-10\/12,
+    .md\:w-11\/12 {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .md\:w-1\/12 {
+        width: calc(8.333333% - 20px);
+    }
+
+    .md\:w-2\/12 {
+        width: calc(16.666667% - 20px);
+    }
+
+    .md\:w-3\/12 {
+        width: calc(25% - 20px);
+    }
+
+    .md\:w-4\/12 {
+        width: calc(33.333333% - 20px);
+    }
+
+    .md\:w-5\/12 {
+        width: calc(41.666667% - 20px);
+    }
+
+    .md\:w-6\/12 {
+        width: calc(50% - 20px);
+    }
+
+    .md\:w-7\/12 {
+        width: calc(58.333333% - 20px);
+    }
+
+    .md\:w-8\/12 {
+        width: calc(66.666667% - 20px);
+    }
+
+    .md\:w-9\/12 {
+        width: calc(75% - 20px);
+    }
+
+    .md\:w-10\/12 {
+        width: calc(83.333333% - 20px);
+    }
+
+    .md\:w-11\/12 {
+        width: calc(91.666667% - 20px);
+    }
+}
+
+
+
+@media screen and (max-width: 560px) {
+    .sm-full {
+        width: calc(100% - 20px);
+    }
+
+    .sm\:w-1\/2,
+    .sm\:w-1\/3,
+    .sm\:w-2\/3,
+    .sm\:w-1\/4,
+    .sm\:w-1\/5 {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .sm\:w-1\/2 {
+        width: calc(50% - 20px);
+    }
+
+    .sm\:w-1\/3 {
+        width: calc(33.333333% - 20px);
+    }
+
+    .sm\:w-2\/3 {
+        width: calc(66.666666% - 20px);
+    }
+
+    .sm\:w-1\/4 {
+        width: calc(25% - 20px);
+    }
+
+    .sm\:w-1\/5 {
+        width: calc(20% - 20px);
+    }
+
+
+    // Twelveths
+    // Twelveths
+    // Twelveths
+    .sm\:w-1\/12,
+    .sm\:w-2\/12,
+    .sm\:w-3\/12,
+    .sm\:w-4\/12,
+    .sm\:w-5\/12,
+    .sm\:w-6\/12,
+    .sm\:w-7\/12,
+    .sm\:w-8\/12,
+    .sm\:w-9\/12,
+    .sm\:w-10\/12,
+    .sm\:w-11\/12 {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .sm\:w-1\/12 {
+        width: calc(8.333333% - 20px);
+    }
+
+    .sm\:w-2\/12 {
+        width: calc(16.666667% - 20px);
+    }
+
+    .sm\:w-3\/12 {
+        width: calc(25% - 20px);
+    }
+
+    .sm\:w-4\/12 {
+        width: calc(33.333333% - 20px);
+    }
+
+    .sm\:w-5\/12 {
+        width: calc(41.666667% - 20px);
+    }
+
+    .sm\:w-6\/12 {
+        width: calc(50% - 20px);
+    }
+
+    .sm\:w-7\/12 {
+        width: calc(58.333333% - 20px);
+    }
+
+    .sm\:w-8\/12 {
+        width: calc(66.666667% - 20px);
+    }
+
+    .sm\:w-9\/12 {
+        width: calc(75% - 20px);
+    }
+
+    .sm\:w-10\/12 {
+        width: calc(83.333333% - 20px);
+    }
+
+    .sm\:w-11\/12 {
+        width: calc(91.666667% - 20px);
+    }
+}
