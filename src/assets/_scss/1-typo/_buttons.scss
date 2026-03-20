@@ -5,21 +5,51 @@
     color: $white;
     text-decoration: none;
 
-    padding: .6rem .65rem;
+    padding: .5rem .65rem;
+    margin-top: .5rem;
     display: inline-block;
-	border-radius: 6px;
+	border-radius: $radius;
     outline: none;
 	background: $red;
 	-webkit-box-shadow:  0px 1px 3px -1px rgba(0,0,0,0.4);
 		-moz-box-shadow: 0px 1px 3px -1px rgba(0,0,0,0.4);
 			box-shadow: 0px 1px 3px -1px rgba(0,0,0,0.4);
 	@include transition();
+
+    &:hover{
+        background-color: $lightRed;
+    }
+
+    + .btn{
+        margin-left: .5rem;
+    }
+
+    &.black{
+        background-color: $black;
+
+        &:hover{
+            background-color: $darkGray;
+        }
+    }
+
+    &.gray{
+        background-color: $darkGray;
+
+        &:hover{
+            background-color: $gray;
+        }
+    }
 }
 
 .link{
     text-decoration: underline;
     margin-top: .7rem;
     display: table;
+    color: $red;
+
+    &::after{
+        content: ' >';
+    }
 }
 
 
