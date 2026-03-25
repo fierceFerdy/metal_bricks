@@ -2,9 +2,9 @@
 .lite_workspace.lua
 
 # Neutralinojs binaries and builds
-/bin
-/dist
-/.tmp
+bin/
+dist/
+.tmp/
 
 # Neutralinojs related files
 .storage
