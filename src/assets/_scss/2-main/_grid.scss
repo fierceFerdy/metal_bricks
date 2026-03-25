@@ -4,6 +4,15 @@
     padding: 2rem;
     position: relative;
 
+    &.noPadding{
+        padding: 0;
+    }
+
+    &.noTBpadding{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
     @media screen and (max-width: 1400px) {
         padding: 1rem;
     }
