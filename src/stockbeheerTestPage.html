@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" href="assets/_scss/style.css">
+</head>
+<body>
+    <h1>stockbeheer</h1>
+    <!-- For each item in out stock we should display: an image, the name, the buy price, the sell price, the amount in stock, and maybe the suplier? -->
+    <!-- The items in stock should come from the data in the storage -->
+    <!-- From storage it should be structured like an object with the values of productImage, productName, stockAmount, buyPrice, sellPrice -->
+     <div class="itemsContainer" id="itemsContainer">
+
+     </div>
+
+     <script>
+        items = [
+            {
+                productImage: 'placeholderProductImage.jpg',
+                productName: 'Product 1',
+                inStockAmount: 5,
+                buyPrice: 100, //in euros
+                sellPrice: 170, //also in euros
+            },
+            {
+                productImage: 'placeholderProductImage.jpg',
+                productName: 'Product 2',
+                inStockAmount: 9,
+                buyPrice: 300,
+                sellPrice: 400,
+            },
+            {
+                productImage: 'placeholderProductImage.jpg',
+                productName: 'Product 3',
+                inStockAmount: 2,
+                buyPrice: 325,
+                sellPrice: 450,
+            }
+        ]
+        document.getElementById('itemsContainer')
+        console.log(items); 
+        items.forEach(element => {
+            document.getElementById('itemsContainer').innerHTML += `
+                <div class="item">
+                    <img src="`+ element.productImage +`" alt="Expected image of an item">
+                    <h2>`+ element.productName +`</h2>
+                    <h2>Amount in stock: `+ element.inStockAmount +`</h2>
+                    <h3>Buy price: `+ element.buyPrice +`</h3>
+                    <h3>Sell price: `+ element.sellPrice +`</h3>
+                </div>`
+        });
+     </script>
+</body>
+</html>

@@ -624,6 +624,13 @@ main {
   padding: 2rem;
   position: relative;
 }
+.row.noPadding {
+  padding: 0;
+}
+.row.noTBpadding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 @media screen and (max-width: 1400px) {
   .row {
     padding: 1rem;
@@ -968,4 +975,46 @@ main {
   .sm\:w-11\/12 {
     width: calc(91.666667% - 20px);
   }
+}
+nav .navItem {
+  display: inline-block;
+  padding: 0.5rem;
+  background-color: #dedede;
+}
+nav .navItem:hover {
+  background-color: #a42826 !important;
+  color: #ffffff !important;
+}
+
+.dropdownWrapper {
+  display: inline-block;
+  position: relative;
+}
+.dropdownWrapper:hover {
+  z-index: 999;
+}
+.dropdownWrapper:hover .navItem {
+  background-color: #a8a8a8;
+  z-index: 999;
+}
+.dropdownWrapper:hover .dropdown {
+  z-index: 999;
+  opacity: 1;
+  display: block;
+}
+.dropdownWrapper .dropdown {
+  position: absolute;
+  min-width: 100px;
+  display: none;
+  opacity: 0;
+  border-top: 1px solid #ffffff;
+}
+.dropdownWrapper .dropdown a {
+  height: auto;
+  border-bottom: 1px solid #f1f2f7;
+  margin: 0;
+}
+.dropdownWrapper .dropdown a:hover {
+  background-color: #a42826;
+  color: #ffffff;
 }/*# sourceMappingURL=style.css.map */
