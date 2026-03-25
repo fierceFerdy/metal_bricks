@@ -125,6 +125,7 @@ function changePage(page){
 }
 
 // exampleData for stockbeheer:
+
 items = [
     {
         productImage: 'placeholderProductImage.jpg',
@@ -132,6 +133,7 @@ items = [
         inStockAmount: 5,
         buyPrice: 100, //in euros
         sellPrice: 170, //also in euros
+        btwPercentage: 21,
     },
     {
         productImage: 'placeholderProductImage.jpg',
@@ -139,6 +141,7 @@ items = [
         inStockAmount: 9,
         buyPrice: 300,
         sellPrice: 400,
+        btwPercentage: 21,
     },
     {
         productImage: 'placeholderProductImage.jpg',
@@ -146,5 +149,6 @@ items = [
         inStockAmount: 2,
         buyPrice: 325,
         sellPrice: 450,
+        btwPercentage: 21,
     }
 ]
