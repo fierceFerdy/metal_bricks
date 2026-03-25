@@ -19,9 +19,6 @@ function changePage(page){
         
         document.getElementById('content').innerHTML = `
             <h1> This is the homepage </h1>
-            <button onclick="changePage('otherPage')">Go to otherPage</button>
-            <button onclick="changePage('stockManagementPage')">Go to otherPage</button>
-            <a href='stockbeheerTestPage.html'>Stock Beheer test pagina</a>
         `;
 
 
@@ -29,7 +26,6 @@ function changePage(page){
         
         document.getElementById('content').innerHTML = `
             <h1> This is the other page </h1>
-            <button onclick="changePage('homepage')">Go to homepage</button>
         `;
 
 
@@ -55,6 +51,76 @@ function changePage(page){
                 </div>`
         });
 
+    }else if (newPage == 'examplesPageHTML'){
+
+        document.getElementById('content').innerHTML = `
+
+            <div class="row">
+                <div class="contentWrapper">
+                    <div class="content">
+                        <h1>Typographic styling options</h1>
+                        <h2>Subtitle</h2>
+                        <h3>Third title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, facere laborum voluptatem eveniet at quas. Iusto, neque. Quae error magnam <a href="">officia vero fugit</a> tempora perspiciatis quaerat distinctio asperiores? Nesciunt, atque.</p>
+                        <a href="" class="link">a link to another place</a>
+
+                        <a href="" class="btn">A button</a>
+                        <a href="" class="btn black">A button</a>
+                        <a href="" class="btn gray">A button</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Main grid -->
+            <div class="row">
+                <h1>Main grid system</h1>
+            </div>
+
+            <div class="row highlight">
+                <p>This represents a row of content</p>
+
+                <div class="contentWrapper highlight">
+                    <p>This wraps the content</p>
+
+                    <div class="content highlight">
+                        <p>Here you place the content itself (usually)</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Grid block -->
+            <div class="row">
+                <div class="contentWrapper">
+                    <div class="content">
+                        <h1>Grid block system</h1>
+                        <p>Check out assets/2-main/_grid.scss for the <strong>many</strong> more options</p>
+                        <div class="w-1/2 highlight"><p>1/2</p></div>
+                        <div class="w-1/2 highlight"><p>1/2</p></div>
+
+                        <div class="w-1/3 highlight"><p>1/3</p></div>
+                        <div class="w-1/3 highlight"><p>1/3</p></div>
+                        <div class="w-1/3 highlight"><p>1/3</p></div>
+
+                        <div class="w-1/4 highlight"><p>1/4</p></div>
+                        <div class="w-1/4 highlight"><p>1/4</p></div>
+                        <div class="w-1/4 highlight"><p>1/4</p></div>
+                        <div class="w-1/4 highlight"><p>1/4</p></div>
+
+                        <div class="gridCorrector">
+                            <div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
+                            <div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
+                            <div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                `;
+    }else{
+        document.getElementById('content').innerHTML = `
+        <h1> 404 PAGE NOT FOUND 404</h1>
+        `
     }
 }
 
