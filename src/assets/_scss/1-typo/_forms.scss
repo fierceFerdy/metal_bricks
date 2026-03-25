@@ -21,6 +21,28 @@ textarea:-webkit-autofill:hover {
 
 
 
+// ===================================================
+// --------- Global form styling
+// ===================================================
+
+.formField{
+    display: block;
+    margin: 10px 0;
+
+    [class^='w-'],
+    [class*='w-'] {
+        margin: 0 10px;
+    }
+}
+
+label{
+    // text-transform: uppercase;
+    font-weight: $bold !important;
+    line-height: 34px !important;
+    color: $black !important;
+}
+
+
 input[type=text],
 input[type=email],
 input[type=number],
@@ -37,11 +59,7 @@ textarea{
     font-weight: $normal;
     color: $black;
     border: 1px solid $lightGray;
-    border-radius: 3px;
     background-color: $white;
-
-    display: inline-block;
-    width: 100%;
 
     @include placeholder(){
         color: $gray;
@@ -50,6 +68,69 @@ textarea{
 
     &:focus,
     &:active{
-		border: 1px solid $darkGray !important;
+		border: 1px solid $black !important;
+    }
+}
+
+
+textarea{
+    min-height: 100px;
+}
+
+
+.checkbox{
+    display: inline-block;
+
+    input{
+        position: relative;
+        top: 10px;
+        vertical-align: top;
+        margin-right: 4px;
+    }
+
+    label{
+        text-transform: none;
+        font-weight: $normal !important;
+    }
+
+    & + .checkbox{
+        margin-left: .5rem;
+    }
+}
+
+form{
+    h2{
+        margin-top: 4rem !important;
+        text-transform: uppercase;
+        position: relative;
+        padding-left: 1.5rem;
+
+        &::before{
+            content: '';
+            display: block;
+            background-color: $black;
+            height: 1rem;
+            width: 1rem;
+
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        &::after{
+            content: '';
+            display: block;
+            background-color: $black;
+            height: 1rem;
+            width: 1rem;
+
+            position: absolute;
+            top: -1rem;
+            left: 1.1rem;
+        }
+    }
+
+    h2:first-of-type{
+        margin-top: 2rem !important;
     }
 }

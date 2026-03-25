@@ -1,19 +1,20 @@
-.btn{
+.btn, input[type=submit]{
     font-family: $lowerFont;
     font-size: .8rem;
     line-height: 1.1em;
     color: $white;
     text-decoration: none;
 
-    padding: .5rem .65rem;
+    padding: .5rem .6rem;
     margin-top: .5rem;
     display: inline-block;
-	border-radius: $radius;
+	// border-radius: $radius;
     outline: none;
 	background: $red;
 	-webkit-box-shadow:  0px 1px 3px -1px rgba(0,0,0,0.4);
 		-moz-box-shadow: 0px 1px 3px -1px rgba(0,0,0,0.4);
 			box-shadow: 0px 1px 3px -1px rgba(0,0,0,0.4);
+
 	@include transition();
 
     &:hover{
