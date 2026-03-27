@@ -25,17 +25,108 @@ function changePage(page){
     }else if(newPage == 'otherPageHTML'){
         
         document.getElementById('content').innerHTML = `
-            <h1> This is the other page </h1>
+            <h1>This is the other page</h1>
+        `;
+
+
+    }else if(newPage == 'clientsHTML'){
+        
+        document.getElementById('content').innerHTML = `
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>Client Database</h1>
+
+						
+
+
+						<table>
+							<tr>
+								<th>Client ID</th>
+								<th>Name</th>
+								<th>Registered on</th>
+								<th>Lead origin</th>
+								<th>Postal code</th>
+								<th>City</th>
+								<th>Street + nr</th>
+								<th></th>
+								<th></th>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td><a>Samba</a></td>
+								<td>27/03/26</td>
+								<td>Google</td>
+								<td>9200</td>
+								<td>Dendermonde</td>
+								<td>Zandstraat 101</td>
+								<td>edit</td>
+								<td>x</td>
+							</tr>
+						</table>
+
+						<a href='' class='btn'>Add client</a>
+					</div>
+				</div>
+			</div>
+        `;
+
+
+    }else if(newPage == 'timetableHTML'){
+        
+        document.getElementById('content').innerHTML = `
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>Timetable</h1>
+					</div>
+				</div>
+			</div>
+        `;
+
+
+    }else if(newPage == 'HRHTML'){
+        
+        document.getElementById('content').innerHTML = `
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>Human Resources</h1>
+					</div>
+				</div>
+			</div>
+        `;
+
+
+    }else if(newPage == 'appointmentsHTML'){
+        
+        document.getElementById('content').innerHTML = `
+            
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>ToDo's</h1>
+					</div>
+				</div>
+			</div>
+            
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>Appointments</h1>
+					</div>
+				</div>
+			</div>
         `;
 
 
     }else if(newPage == 'stockManagementPageHTML'){
 
         document.getElementById('content').innerHTML = `
-        <h1>stockbeheer</h1>
-        <div class="itemsContainer" id="itemsContainer">
+			<h1>stockbeheer</h1>
+			<div class="itemsContainer" id="itemsContainer">
 
-        </div>
+			</div>
         `;
 
         document.getElementById('itemsContainer')
@@ -206,32 +297,32 @@ function changePage(page){
 					<div class="content">
 
 
-					<table>
-						<tr>
-							<th>Id</th>
-							<th>Name</th>
-							<th>Date</th>
-							<th>Amount</th>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>Samba</td>
-							<td>27/03/26</td>
-							<td>100</td>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>Samba</td>
-							<td>27/03/26</td>
-							<td>100</td>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>Samba</td>
-							<td>27/03/26</td>
-							<td>100</td>
-						</tr>
-					</table>
+						<table>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Date</th>
+								<th>Amount</th>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>Samba</td>
+								<td>27/03/26</td>
+								<td>100</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>Samba</td>
+								<td>27/03/26</td>
+								<td>100</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>Samba</td>
+								<td>27/03/26</td>
+								<td>100</td>
+							</tr>
+						</table>
 
 					</div>
 				</div>
