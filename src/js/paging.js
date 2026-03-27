@@ -25,30 +25,131 @@ function changePage(page){
     }else if(newPage == 'otherPageHTML'){
         
         document.getElementById('content').innerHTML = `
-            <h1> This is the other page </h1>
+            <h1>This is the other page</h1>
+        `;
+
+
+    }else if(newPage == 'clientsHTML'){
+        
+        document.getElementById('content').innerHTML = `
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>Client Database</h1>
+
+						
+
+
+						<table>
+							<tr>
+								<th>Client ID</th>
+								<th>Name</th>
+								<th>Registered on</th>
+								<th>Lead origin</th>
+								<th>Postal code</th>
+								<th>City</th>
+								<th>Street + nr</th>
+								<th></th>
+								<th></th>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td><a>Samba</a></td>
+								<td>27/03/26</td>
+								<td>Google</td>
+								<td>9200</td>
+								<td>Dendermonde</td>
+								<td>Zandstraat 101</td>
+								<td>edit</td>
+								<td>x</td>
+							</tr>
+						</table>
+
+						<a href='' class='btn'>Add client</a>
+					</div>
+				</div>
+			</div>
+        `;
+
+
+    }else if(newPage == 'timetableHTML'){
+        
+        document.getElementById('content').innerHTML = `
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>Timetable</h1>
+					</div>
+				</div>
+			</div>
+        `;
+
+
+    }else if(newPage == 'HRHTML'){
+        
+        document.getElementById('content').innerHTML = `
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>Human Resources</h1>
+					</div>
+				</div>
+			</div>
+        `;
+
+
+    }else if(newPage == 'appointmentsHTML'){
+        
+        document.getElementById('content').innerHTML = `
+            
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>ToDo's</h1>
+					</div>
+				</div>
+			</div>
+            
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+            			<h1>Appointments</h1>
+					</div>
+				</div>
+			</div>
         `;
 
 
     }else if(newPage == 'stockManagementPageHTML'){
 
         document.getElementById('content').innerHTML = `
-        <h1>stockbeheer</h1>
+        <h1>Stock management</h1>
+	
+			<table id ='stockTable'>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Amount</th>
+					<th>Buy price</th>
+					<th>Sell price</th>
+				</tr>
+			</table>
+
         <div class="itemsContainer" id="itemsContainer">
 
-        </div>
+			</div>
         `;
 
         document.getElementById('itemsContainer')
-        console.log(items); 
         items.forEach(element => {
-            document.getElementById('itemsContainer').innerHTML += `
-                <div class="item">
-                    <img src="`+ element.productImage +`" alt="Expected image of an item">
-                    <h2>`+ element.productName +`</h2>
-                    <h2>Amount in stock: `+ element.inStockAmount +`</h2>
-                    <h3>Buy price: `+ element.buyPrice +`</h3>
-                    <h3>Sell price: `+ element.sellPrice +`</h3>
-                </div>`
+            document.getElementById('stockTable').innerHTML += `
+                <tr class="item">
+					<td>0</td>
+					<td>`+ element.productName +`</td>
+					<td>`+ element.inStockAmount +`</td>
+                    <td>`+ element.buyPrice +`</td>
+                    <td>`+ element.sellPrice +`</td>
+                </tr>`
         });
 
     }else if (newPage == 'examplesPageHTML'){
@@ -206,38 +307,46 @@ function changePage(page){
 					<div class="content">
 
 
-					<table>
-						<tr>
-							<th>Id</th>
-							<th>Name</th>
-							<th>Date</th>
-							<th>Amount</th>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>Samba</td>
-							<td>27/03/26</td>
-							<td>100</td>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>Samba</td>
-							<td>27/03/26</td>
-							<td>100</td>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>Samba</td>
-							<td>27/03/26</td>
-							<td>100</td>
-						</tr>
-					</table>
+						<table>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Date</th>
+								<th>Amount</th>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>Samba</td>
+								<td>27/03/26</td>
+								<td>100</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>Samba</td>
+								<td>27/03/26</td>
+								<td>100</td>
+							</tr>
+							<tr>
+								<td>0</td>
+								<td>Samba</td>
+								<td>27/03/26</td>
+								<td>100</td>
+							</tr>
+						</table>
 
 					</div>
 				</div>
 			</div>
         `;
-    }else{
+    }else if(newPage == 'CreateInvoiceHTML'){
+		document.getElementById('content').innerHTML = `
+			<h1 class="title">Maak factuur</h1>
+			<form action="changePage('homepage')" method="post">
+
+				<button type="submit">HEEEEEEE</button>
+			</form>
+		`;
+	}else{
         document.getElementById('content').innerHTML = `
         <h1> 404 PAGE NOT FOUND 404</h1>
         `
