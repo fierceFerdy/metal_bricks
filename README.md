@@ -7,8 +7,8 @@ A business app as a class assignment, built with NeutralinoJS
 - open command prompt
 - change directory to root of project
 - > npx neu update
-  > npx neu build
-  > npx neu run
+- > npx neu build
+- > npx neu run
 
 ## Contributors
 
