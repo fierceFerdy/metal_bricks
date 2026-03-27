@@ -443,6 +443,30 @@ form h2:first-of-type {
   margin-top: 2rem !important;
 }
 
+table {
+  border: 1px solid #0e0e0f;
+  width: 100%;
+}
+table tr th, table tr td {
+  border-bottom: 1px solid #0e0e0f;
+  text-align: left;
+  padding: 4px;
+}
+table tr th {
+  background-color: #0e0e0f;
+  color: #ffffff;
+  font-weight: 700;
+}
+table tr td {
+  background-color: #ffffff;
+}
+table tr:nth-of-type(even) {
+  background-color: #dddddd;
+}
+table tr:last-of-type td, table tr:last-of-type th {
+  border-bottom: 0;
+}
+
 html {
   font-size: 20px;
 }

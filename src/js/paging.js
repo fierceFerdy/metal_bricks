@@ -55,148 +55,187 @@ function changePage(page){
 
         document.getElementById('content').innerHTML = `
             
-	<div class="row">
-		<div class="contentWrapper">
-			<div class="content">
-				<h1>Typographic styling options</h1>
-				<h2>Subtitle</h2>
-				<h3>Third title</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, facere laborum voluptatem eveniet at quas. Iusto, neque. Quae error magnam <a href="">officia vero fugit</a> tempora perspiciatis quaerat distinctio asperiores? Nesciunt, atque.</p>
-				<a href="" class="link">a link to another place</a>
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+						<h1>Typographic styling options</h1>
+						<h2>Subtitle</h2>
+						<h3>Third title</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, facere laborum voluptatem eveniet at quas. Iusto, neque. Quae error magnam <a href="">officia vero fugit</a> tempora perspiciatis quaerat distinctio asperiores? Nesciunt, atque.</p>
+						<a href="" class="link">a link to another place</a>
 
-				<a href="" class="btn">A button</a>
-				<a href="" class="btn black">A button</a>
-				<a href="" class="btn gray">A button</a>
-			</div>
-		</div>
-	</div>
-
-
-	<!-- Main grid -->
-	<div class="row">
-		<h1>Main grid system</h1>
-	</div>
-
-	<div class="row highlight">
-		<p>This represents a row of content</p>
-
-		<div class="contentWrapper highlight">
-			<p>This wraps the content</p>
-
-			<div class="content highlight">
-				<p>Here you place the content itself (usually)</p>
-			</div>
-		</div>
-	</div>
-
-
-
-	<!-- Grid block -->
-	<div class="row">
-		<div class="contentWrapper">
-			<div class="content">
-				<h1>Grid block system</h1>
-				<p>Check out assets/2-main/_grid.scss for the <strong>many</strong> more options</p>
-				<div class="w-1/2 highlight"><p>1/2</p></div>
-				<div class="w-1/2 highlight"><p>1/2</p></div>
-
-				<div class="w-1/3 highlight"><p>1/3</p></div>
-				<div class="w-1/3 highlight"><p>1/3</p></div>
-				<div class="w-1/3 highlight"><p>1/3</p></div>
-
-				<div class="w-1/4 highlight"><p>1/4</p></div>
-				<div class="w-1/4 highlight"><p>1/4</p></div>
-				<div class="w-1/4 highlight"><p>1/4</p></div>
-				<div class="w-1/4 highlight"><p>1/4</p></div>
-
-				<div class="gridCorrector">
-					<div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
-					<div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
-					<div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
+						<a href="" class="btn">A button</a>
+						<a href="" class="btn black">A button</a>
+						<a href="" class="btn gray">A button</a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 
 
-
-	<!-- Forms -->
-	<div class="row">
-		<div class="contentWrapper">
-			<div class="content gridCorrector">
-
-				<form action="">
-
-					<h2 class="w-full">A section title</h2>
-
-					<div class="formField">
-						<label class="w-1/4" for="input1">Inputveld</label>
-						<input class="w-3/4" type="text" name="input1" id="input1">
-					</div>
-
-					<div class="formField">
-						<label class="w-1/4" for="input2">Inputveld</label>
-						<input class="w-3/4" type="text" name="input2" id="input2">
-					</div>
-
-					<div class="formField">
-						<label class="w-1/4" for="input4">Dropdown</label>
-						<select class="w-3/4" name="input4" id="input4">
-							<option value="vb">dropdown optie</option>
-							<option value="vb">dropdown optie2</option>
-							<option value="vb">dropdown optie3</option>
-						</select>
-					</div>
-
-					<h2 class="w-full">A section title</h2>
-
-					<div class="formField">
-						<label class="w-1/4" for="input3">Textarea</label>
-						<textarea class="w-3/4" name="input3" id="input3"></textarea>
-					</div>
-
-					<div class="formField">
-						<label class="w-1/4">checkboxes</label>
-						<div class="w-3/4">
-							<div class="checkbox">
-								<input type="checkbox" name="check" for="check1" id="check1">
-								<label for="check1">checkbox 1</label>
-							</div>
-
-							<div class="checkbox">
-								<input type="checkbox" name="check" for="check2" id="check2">
-								<label for="check2">checkbox 2</label>
-							</div>
-						</div>
-					</div>
-
-					<div class="formField">
-						<label class="w-1/4">radios</label>
-						<div class="w-3/4">
-							<div class="checkbox">
-								<input type="radio" name="radio" for="radio1" id="radio1">
-								<label for="radio1">checkbox 1</label>
-							</div>
-
-							<div class="checkbox">
-								<input type="radio" name="radio" for="radio2" id="radio2">
-								<label for="radio2">checkbox 2</label>
-							</div>
-						</div>
-					</div>
-
-					<div class="formField">
-						<div class="w-1/4">&nbsp;</div>
-						<div class="w-3/4">
-							<input class="black" type="submit" value="opslaan">
-						</div>
-					</div>
-
-				</form>
-
+			<!-- Main grid -->
+			<div class="row">
+				<h1>Main grid system</h1>
 			</div>
-		</div>
-	</div>
+
+			<div class="row highlight">
+				<p>This represents a row of content</p>
+
+				<div class="contentWrapper highlight">
+					<p>This wraps the content</p>
+
+					<div class="content highlight">
+						<p>Here you place the content itself (usually)</p>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Grid block -->
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+						<h1>Grid block system</h1>
+						<p>Check out assets/2-main/_grid.scss for the <strong>many</strong> more options</p>
+						<div class="w-1/2 highlight"><p>1/2</p></div>
+						<div class="w-1/2 highlight"><p>1/2</p></div>
+
+						<div class="w-1/3 highlight"><p>1/3</p></div>
+						<div class="w-1/3 highlight"><p>1/3</p></div>
+						<div class="w-1/3 highlight"><p>1/3</p></div>
+
+						<div class="w-1/4 highlight"><p>1/4</p></div>
+						<div class="w-1/4 highlight"><p>1/4</p></div>
+						<div class="w-1/4 highlight"><p>1/4</p></div>
+						<div class="w-1/4 highlight"><p>1/4</p></div>
+
+						<div class="gridCorrector">
+							<div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
+							<div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
+							<div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Forms -->
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content gridCorrector">
+
+						<form action="">
+
+							<h2 class="w-full">A section title</h2>
+
+							<div class="formField">
+								<label class="w-1/4" for="input1">Inputveld</label>
+								<input class="w-3/4" type="text" name="input1" id="input1">
+							</div>
+
+							<div class="formField">
+								<label class="w-1/4" for="input2">Inputveld</label>
+								<input class="w-3/4" type="text" name="input2" id="input2">
+							</div>
+
+							<div class="formField">
+								<label class="w-1/4" for="input4">Dropdown</label>
+								<select class="w-3/4" name="input4" id="input4">
+									<option value="vb">dropdown optie</option>
+									<option value="vb">dropdown optie2</option>
+									<option value="vb">dropdown optie3</option>
+								</select>
+							</div>
+
+							<h2 class="w-full">A section title</h2>
+
+							<div class="formField">
+								<label class="w-1/4" for="input3">Textarea</label>
+								<textarea class="w-3/4" name="input3" id="input3"></textarea>
+							</div>
+
+							<div class="formField">
+								<label class="w-1/4">checkboxes</label>
+								<div class="w-3/4">
+									<div class="checkbox">
+										<input type="checkbox" name="check" for="check1" id="check1">
+										<label for="check1">checkbox 1</label>
+									</div>
+
+									<div class="checkbox">
+										<input type="checkbox" name="check" for="check2" id="check2">
+										<label for="check2">checkbox 2</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="formField">
+								<label class="w-1/4">radios</label>
+								<div class="w-3/4">
+									<div class="checkbox">
+										<input type="radio" name="radio" for="radio1" id="radio1">
+										<label for="radio1">checkbox 1</label>
+									</div>
+
+									<div class="checkbox">
+										<input type="radio" name="radio" for="radio2" id="radio2">
+										<label for="radio2">checkbox 2</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="formField">
+								<div class="w-1/4">&nbsp;</div>
+								<div class="w-3/4">
+									<input class="black" type="submit" value="opslaan">
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+
+
+			
+			<!-- Tables -->
+			<div class="row">
+				<div class="contentWrapper">
+					<div class="content">
+
+
+					<table>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Date</th>
+							<th>Amount</th>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>Samba</td>
+							<td>27/03/26</td>
+							<td>100</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>Samba</td>
+							<td>27/03/26</td>
+							<td>100</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>Samba</td>
+							<td>27/03/26</td>
+							<td>100</td>
+						</tr>
+					</table>
+
+					</div>
+				</div>
+			</div>
         `;
     }else{
         document.getElementById('content').innerHTML = `
