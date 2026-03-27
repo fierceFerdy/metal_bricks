@@ -237,7 +237,15 @@ function changePage(page){
 				</div>
 			</div>
         `;
-    }else{
+    }else if(newPage == 'CreateInvoiceHTML'){
+		document.getElementById('content').innerHTML = `
+			<h1 class="title">Maak factuur</h1>
+			<form action="changePage('homepage')" method="post">
+
+				<button type="submit">HEEEEEEE</button>
+			</form>
+		`;
+	}else{
         document.getElementById('content').innerHTML = `
         <h1> 404 PAGE NOT FOUND 404</h1>
         `
