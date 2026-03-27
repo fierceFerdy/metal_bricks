@@ -1,0 +1,31 @@
+table{
+    border: 1px solid $black;
+    width: 100%;
+
+    tr{
+        th, td{
+            border-bottom: 1px solid $black;
+            text-align: left;
+            padding: 4px;
+        }
+
+        th{
+            background-color: $black;
+            color: $white;
+            font-weight: $bold;
+        }
+
+        td{
+            background-color: $white;
+        }
+
+        &:nth-of-type(even){
+            background-color: $lightGray;            
+        }
+        &:last-of-type{
+            td, th{
+                border-bottom: 0;
+            }
+        }
+    }
+}
