@@ -32,7 +32,18 @@ function changePage(page){
     }else if(newPage == 'stockManagementPageHTML'){
 
         document.getElementById('content').innerHTML = `
-        <h1>stockbeheer</h1>
+        <h1>Stock management</h1>
+	
+			<table id ='stockTable'>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Amount</th>
+					<th>Buy price</th>
+					<th>Sell price</th>
+				</tr>
+			</table>
+
         <div class="itemsContainer" id="itemsContainer">
 
         </div>
@@ -40,14 +51,14 @@ function changePage(page){
 
         document.getElementById('itemsContainer')
         items.forEach(element => {
-            document.getElementById('itemsContainer').innerHTML += `
-                <div class="item">
-                    <img src="`+ element.productImage +`" alt="Expected image of an item">
-                    <h2>`+ element.productName +`</h2>
-                    <h2>Amount in stock: `+ element.inStockAmount +`</h2>
-                    <h3>Buy price: `+ element.buyPrice +`</h3>
-                    <h3>Sell price: `+ element.sellPrice +`</h3>
-                </div>`
+            document.getElementById('stockTable').innerHTML += `
+                <tr class="item">
+					<td>0</td>
+					<td>`+ element.productName +`</td>
+					<td>`+ element.inStockAmount +`</td>
+                    <td>`+ element.buyPrice +`</td>
+                    <td>`+ element.sellPrice +`</td>
+                </tr>`
         });
 
     }else if (newPage == 'examplesPageHTML'){

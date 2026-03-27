@@ -80,18 +80,32 @@ const stockItems = [
 //     console.log(items);
 // });
 
-async function setData(){
-    await Neutralino.storage.setData('userDetails',
-    JSON.stringify({ username: 'TestValue'})
+async function setStockItems(){
+    await Neutralino.storage.setData('stockItems',
+    JSON.stringify(stockItems)
     );
 }
-setData();
+setStockItems();
+
+// this function should be put in the paging system.
+async function getStockItems(){
+    let data = await Neutralino.storage.getData('stockItems');
+    return data
+}
+
+// fetchedItems = getStockItems();
+// console.log(fetchedItems);
 
 async function getKeysFromStorage(){
     let keys = await Neutralino.storage.getKeys();
     console.log('Keys: ', keys);
 }
 getKeysFromStorage();
+
+async function clearStorage(){
+    await Neutralino.storage.clear();
+}
+clearStorage();
 
 // async function getData(){
 //     let data = await Neutralino.storage.getData('userDetails');
