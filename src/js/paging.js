@@ -130,7 +130,6 @@ function changePage(page){
         `;
 
         document.getElementById('itemsContainer')
-        console.log(items); 
         items.forEach(element => {
             document.getElementById('itemsContainer').innerHTML += `
                 <div class="item">
