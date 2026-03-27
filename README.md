@@ -1,15 +1,16 @@
-# neutralinojs-minimal
+# Metal Bricks
 
-The default template for a Neutralinojs app. It's possible to use your favorite frontend framework by using [these steps](https://neutralino.js.org/docs/getting-started/using-frontend-libraries).
+A business app as a class assignment, built with NeutralinoJS
+
+## Start to work with the project
+
+- open command prompt
+- change directory to root of project
+- > npx neu update
+- > npx neu build
+- > npx neu run
 
 ## Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=neutralinojs/neutralinojs-minimal)](https://github.com/neutralinojs/neutralinojs-minimal/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=fierceFerdy/metal_bricks)](https://github.com/fierceFerdy/metal_bricks/graphs/contributors)
 
-## License
-
-[MIT](LICENSE)
-
-## Icon credits
-
-- `trayIcon.png` - Made by [Freepik](https://www.freepik.com) and downloaded from [Flaticon](https://www.flaticon.com)

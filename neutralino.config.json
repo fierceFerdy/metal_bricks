@@ -17,7 +17,7 @@
     "app.*",
     "os.*",
     "debug.log",
-    "storage*"
+    "storage.*"
   ],
   "globalVariables": {
     "TEST1": "Hello",
