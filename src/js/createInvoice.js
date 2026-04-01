@@ -19,8 +19,8 @@ function addItem(){
 
     itemCount ++; // add 1 to the count
 
-    // finally create the new item
-    document.getElementById("addItemDiv").innerHTML += `
+    var container = document.createElement("div");
+    container.innerHTML = `
         <div id="itemDiv` + itemCount + `">
             <label for="itemDiscription` + itemCount + `">discription:</label>
             <input type="text" id="itemDiscription` + itemCount + `" name="itemDiscription` + itemCount + `">
@@ -30,6 +30,20 @@ function addItem(){
             <button type="button" id="addItemButton" onclick="addItem()">+</button>
             </div>
         </div>`;
+    document.getElementById("addItemDiv").appendChild(container);
+
+    // former try
+    // // finally create the new item
+    // document.getElementById("addItemDiv").innerHTML += `
+    //     <div id="itemDiv` + itemCount + `">
+    //         <label for="itemDiscription` + itemCount + `">discription:</label>
+    //         <input type="text" id="itemDiscription` + itemCount + `" name="itemDiscription` + itemCount + `">
+    //         <label for="itemAmount` + itemCount + `">amount:</label>
+    //         <input type="number" id="itemAmount` + itemCount + `" name="itemAmount` + itemCount + `">
+    //         <div id="addItemButtonContainer">
+    //         <button type="button" id="addItemButton" onclick="addItem()">+</button>
+    //         </div>
+    //     </div>`;
 }
 
 // function triggers when when the - button is pressed to remove an item
