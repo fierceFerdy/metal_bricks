@@ -140,17 +140,31 @@ function changePage(page){
 			</div>
         `;
 
-        document.getElementById('itemsContainer')
-        items.forEach(element => {
-            document.getElementById('stockTable').innerHTML += `
-                <tr class="item">
-					<td>0</td>
-					<td>`+ element.productName +`</td>
-					<td>`+ element.inStockAmount +`</td>
-                    <td>`+ element.buyPrice +`</td>
-                    <td>`+ element.sellPrice +`</td>
-                </tr>`
-        });
+		var retrievedStockItems = '';
+
+		getStockItems().then(function(response) {
+			retrievedStockItems = JSON.parse(response);
+			console.log("Success!", retrievedStockItems);
+
+			
+			console.log('testing testing')
+			console.log('retrievedStockItems', retrievedStockItems)
+			
+			retrievedStockItems.forEach(element => {
+				document.getElementById('stockTable').innerHTML += `
+					<tr class="item">
+						<td>`+ element.productId +`</td>
+						<td>`+ element.productName +`</td>
+						<td>`+ element.inStockAmount +`</td>
+						<td>`+ element.buyPrice +`</td>
+						<td>`+ element.sellPrice +`</td>
+					</tr>`
+			});
+
+		}, function(error) {
+			console.log("Failed!", error); // hier moet nog een error op de pagina kunnen geven.
+
+		})
 
     }else if (newPage == 'examplesPageHTML'){
 
@@ -381,3 +395,11 @@ items = [
         btwPercentage: 21,
     }
 ]
+
+
+// functions
+
+async function getStockItems(){
+	let data = await Neutralino.storage.getData('stockItems');
+	return data
+}
