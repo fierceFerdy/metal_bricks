@@ -340,11 +340,45 @@ function changePage(page){
         `;
     }else if(newPage == 'CreateInvoiceHTML'){
 		document.getElementById('content').innerHTML = `
-			<h1 class="title">Maak factuur</h1>
-			<form action="changePage('homepage')" method="post">
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+			</head>
+			<body>
+				<form action="" method="post">
+					<h1 class="title">create invoice</h1>
+						<div class="ClientInfo">
+							<h2>Client info:</h2>
 
-				<button type="submit">HEEEEEEE</button>
-			</form>
+							<label for="clientName">Client Name:</label>
+							<input type="text" id="clientName" name="clientName">
+							<br>
+
+							<label for="startDate">Date:</label>
+							<input type="date" id="startDate" name="startDate">
+							<br>
+
+							<label for="Expdate">Expiration date:</label>
+							<input type="date" id="Expdate" name="Expdate">
+							<br>
+						</div>
+						<div class="addItem">
+							<h2>Add item:</h2>
+
+							<label for="itemDiscription">discription:</label>
+							<input type="text" id="itemDiscription" name="itemDiscription">
+							<label for="itemAmount">amount:</label>
+							
+							<input type="number" id="itemAmount" name="itemAmount">
+							<button type="button" id="addItemButton">+</button>
+							<br>
+						</div>
+				</form>
+			</body>
+			</html>
 		`;
 	}else{
         document.getElementById('content').innerHTML = `
