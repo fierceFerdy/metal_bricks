@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/_scss/style.css">
+</head>
+<body>
+     <h1 id="variableGreeting">Good evening</h1>
+    <!-- Two sections parting page centrally -->
+        <!-- 1. Displays current day and month appointment overview with just the day displaying in a different color if something is happening then-->
+    <div id="dayStatus" class="bg">
+        <p id="currentDay">Wednesday</p>
+        <h1 id="monthDayDisplay">December 10</h1>
+        <h2>2 Upcoming events</h2>
+    </div>
+    <div class="calendar">
+        <table>
+            <thead>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </thead>
+            <tbody>
+                <!-- JS function to see what day of the week the month begins, so April 1 -->
+                 <script></script>
+            </tbody>
+        </table>
+    </div>
+        <!-- 2. List op upcoming To-do's with an add To-do button -->
+    <div>
+        <h2>Upcoming To-do's</h2>
+        <button>+</button>
+        <div id="listOfUpcomingTodos"> <!-- has a fixed height, and is scrollable-->
+            <!-- moet gefetched worden uit storage -->
+            <!-- moet ook via js worden toegevoegd -->
+            <div class="toDo">
+                <p>Today</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+                <div class="toDoInfoContainer, bg">
+                    <h3 id="todoTitle">Title of the todo</h3>
+                    <p>time planned</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Appointments section: add appointment button next to header -->
+    <!-- Then again 2 sections though the seconds one is hidden at first -->
+        <!-- 1. Lists the appointments appointments by date  -->
+</body>
+</html>
