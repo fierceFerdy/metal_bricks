@@ -24,6 +24,7 @@ Neutralino.init();
 // Test Falco
 const stockItems = [
     {
+        productId: 1,
         productImage: 'placeholderProductImage.jpg',
         productName: 'Product 1',
         inStockAmount: 5,
@@ -32,6 +33,7 @@ const stockItems = [
         btwPercentage: 21,
     },
     {
+        productId: 2,
         productImage: 'placeholderProductImage.jpg',
         productName: 'Product 2',
         inStockAmount: 9,
@@ -40,11 +42,30 @@ const stockItems = [
         btwPercentage: 21,
     },
     {
+        productId: 3,
         productImage: 'placeholderProductImage.jpg',
         productName: 'Product 3',
         inStockAmount: 2,
         buyPrice: 325,
         sellPrice: 450,
+        btwPercentage: 21,
+    },
+    {
+        productId: 4,
+        productImage: 'placeholderProductImage.jpg',
+        productName: 'Product 4',
+        inStockAmount: 25,
+        buyPrice: 80,
+        sellPrice: 140,
+        btwPercentage: 21,
+    },
+    {
+        productId: 5,
+        productImage: 'placeholderProductImage.jpg',
+        productName: 'Product 5',
+        inStockAmount: 6,
+        buyPrice: 180,
+        sellPrice: 270,
         btwPercentage: 21,
     }
 ];
@@ -85,13 +106,15 @@ async function setStockItems(){
     JSON.stringify(stockItems)
     );
 }
-setStockItems();
+setStockItems()
+// setStockItems();
 
 // this function should be put in the paging system.
 async function getStockItems(){
     let data = await Neutralino.storage.getData('stockItems');
     return data
 }
+console.log(getStockItems());
 
 // fetchedItems = getStockItems();
 // console.log(fetchedItems);
@@ -100,12 +123,11 @@ async function getKeysFromStorage(){
     let keys = await Neutralino.storage.getKeys();
     console.log('Keys: ', keys);
 }
-getKeysFromStorage();
+// getKeysFromStorage();
 
 async function clearStorage(){
     await Neutralino.storage.clear();
 }
-clearStorage();
 
 // async function getData(){
 //     let data = await Neutralino.storage.getData('userDetails');
