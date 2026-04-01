@@ -10,7 +10,13 @@ main {
 
 .highlight{
     border: 1px solid $red;
+    background-color: rgba(248, 4, 4, .05);
+}
+
+.bg{
+    border-radius: $radius;
     background-color: rgba(248, 4, 4, .2);
+    padding: 10px;
 }
 
 

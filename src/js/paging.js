@@ -212,6 +212,9 @@ function changePage(page){
 					<div class="content">
 						<h1>Grid block system</h1>
 						<p>Check out assets/2-main/_grid.scss for the <strong>many</strong> more options</p>
+						
+						<div class="w-full highlight"><p>full</p></div>
+
 						<div class="w-1/2 highlight"><p>1/2</p></div>
 						<div class="w-1/2 highlight"><p>1/2</p></div>
 
@@ -229,6 +232,9 @@ function changePage(page){
 							<div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
 							<div class="w-1/3 highlight"><p>1/3 in a gridCorrector</p></div>
 						</div>
+
+						<div class="w-1/2 bg"><p>1/2 with bg</p></div>
+						<div class="w-1/2 bg"><p>1/2 with bg</p></div>
 					</div>
 				</div>
 			</div>

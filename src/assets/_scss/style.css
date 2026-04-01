@@ -665,7 +665,13 @@ main {
 
 .highlight {
   border: 1px solid #a42826;
+  background-color: rgba(248, 4, 4, 0.05);
+}
+
+.bg {
+  border-radius: 6px;
   background-color: rgba(248, 4, 4, 0.2);
+  padding: 10px;
 }
 
 @media screen and (min-width: 561px) {
