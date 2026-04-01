@@ -54,28 +54,38 @@ const invoice = {
 
 
 class Klant{
-  constructor(naam, straat, straatNr, stad, postcode){
+  constructor(naam, straat, straatNr, stad, postcode, IBAN){
     this.naam = naam;
     this.straat = straat;
     this.straatNr = straatNr;
     this.stad = stad;
     this.postcode = postcode;
+    this.IBAN = IBAN;
   }
-  get Info(){
-    return this.naam = naam;
-    this.straat = straat;
-    this.naam = naam;
-    this.naam = naam;
-    this.naam = naam;
+}
+
+class FactuurProduct{
+  constructor(product_id, beschrijving, aantal){
+    this.product_id = product_id;
+    this.beschrijving = beschrijving;
+    this.aantal = aantal;
     
   }
 }
 
-class factuur{
-  constructor(factuurNr, datum, vervalDatum, klant){
+class Factuur{
+  constructor(factuurNr, datum, vervalDatum, product, klant){
     this.factuurNr = factuurNr;
     this.datum = datum;
     this.vervalDatum = vervalDatum;
+    this.product = product;
     this.klant = klant;
-  }
+  } 
 }
+klant1 = new Klant('dqd','dsqdsq','qdsqsd', 'sdqsdq','dsffsd')
+product1 = new FactuurProduct(1, 'hallo', 3)
+factuur1 = new Factuur(456,456,456, product1, klant1)
+
+
+
+console.log(factuur1);
