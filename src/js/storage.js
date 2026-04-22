@@ -134,3 +134,16 @@ async function clearStorage(){
 //     console.log(`Data: ${data}`);
 // }
 // getData();
+
+
+
+
+
+
+
+
+
+// agenda storage
+// What needs to be saved from the agenda/ appointment page 
+// everyone is currently the same user
+// The appoinment title, the user for which the appointment is, the day / time of the appointment,

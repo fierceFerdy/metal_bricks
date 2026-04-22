@@ -26,9 +26,10 @@
                 <th>Fri</th>
                 <th>Sat</th>
             </thead>
-            <tbody>
+            <tbody id="calendarBody">
                 <!-- JS function to see what day of the week the month begins, so April 1 -->
-                 <script></script>
+                 <script>
+                 </script>
             </tbody>
         </table>
     </div>
@@ -52,4 +53,111 @@
     <!-- Then again 2 sections though the seconds one is hidden at first -->
         <!-- 1. Lists the appointments appointments by date  -->
 </body>
+
+<script>
+
+    variableGreeting
+
+    var today = new Date();
+    
+    var currentMonthCode = today.getMonth();
+    var currentMonth = turnMonthCodeIntoWord(currentMonthCode);
+    
+    document.getElementById('variableGreeting').innerHTML = 
+    document.getElementById('currentDay').innerHTML = turnDayCodeIntoWord(today.getDay());
+    document.getElementById('monthDayDisplay').innerHTML = currentMonth + ' ' + today.getDate();
+
+    var currentYear = today.getYear() + 1900
+    
+    
+    var firstDayOfTheMonthString = String(currentYear) + '-' + String(currentMonthCode + 1) + '-1';
+    var firstOfTheMonth = new Date(firstDayOfTheMonthString)
+    var firstDayOfTheMonth = firstOfTheMonth.getDay();
+    
+    // document.getElementById('calendarBody').innerHTML += '<tr>';
+    amountOfSpacesOnCalendar = 0
+    var tr = document.createElement('tr');
+
+        for (let index = 0; index < firstDayOfTheMonth; index++) {
+            tr.innerHTML += '<td></td>';
+            amountOfSpacesOnCalendar++
+        }
+    document.getElementById('calendarBody').appendChild(tr);
+
+        for (let index = 1; index < 31; index++) { // TODO: month length should change according to month
+
+            if(amountOfSpacesOnCalendar % 7 != 0){
+
+                if(index < today.getDate()){
+                    tr.innerHTML += '<td style="opacity: .6;">' + String(index) + '</td>' 
+                }else{
+                    tr.innerHTML += '<td>' + String(index) + '</td>' 
+                }
+
+            }else{
+
+                document.getElementById('calendarBody').appendChild(tr);
+                tr = document.createElement('tr');
+                
+                if(index < today.getDate()){
+                    tr.innerHTML += '<td style="opacity: .6;">' + String(index) + '</td>' 
+                }else{
+                    tr.innerHTML += '<td>' + String(index) + '</td>' 
+                }
+
+            }
+            document.getElementById('calendarBody').appendChild(tr);
+            amountOfSpacesOnCalendar++
+        }
+        
+        console.log(amountOfSpacesOnCalendar)
+
+
+
+    function turnMonthCodeIntoWord(currentMonthCode){
+        if(currentMonthCode == 0){
+            return 'January';
+        }else if(currentMonthCode == 1){
+            return 'February';
+        }else if(currentMonthCode == 2){
+            return 'March';
+        }else if(currentMonthCode == 3){
+            return'April';
+        }else if(currentMonthCode == 4){
+            return 'May';
+        }else if(currentMonthCode == 5){
+            return 'June';
+        }else if(currentMonthCode == 6){
+            return 'July';
+        }else if(currentMonthCode == 7){
+            return 'August';
+        }else if(currentMonthCode == 8){
+            return 'September';
+        }else if(currentMonthCode == 9){
+            return 'October';
+        }else if(currentMonthCode == 10){
+            return 'November';
+        }else if(currentMonthCode == 11){
+            return 'December';
+        }
+    }
+
+    function turnDayCodeIntoWord(currentDayCode){
+        if(currentDayCode == 0){
+            return 'Sunday';
+        }else if(currentDayCode == 1){
+            return 'Monday';
+        }else if(currentDayCode == 2){
+            return 'Tuesday';
+        }else if(currentDayCode == 3){
+            return 'Wednesday';
+        }else if(currentDayCode == 4){
+            return 'Thursday';
+        }else if(currentDayCode == 5){
+            return 'Friday';
+        }else if(currentDayCode == 6){
+            return 'Saturday';
+        }
+    }
+</script>
 </html>
