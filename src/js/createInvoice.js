@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 var itemCount = 0;
 
-// activates when a + is clicked to add an item
+// activates when a "+" is clicked to add an item
 function addItem(){
-    //change the button from + to - and changes functionallity from add to deleye
+    console.log("addItem");
+    //change the button from + to - and changes functionallity from add to delete
     document.getElementById("addItemButtonContainer").innerHTML = `
         <button type="button" id="` + itemCount + `" onclick="deleteItem(this.id)">-</button>
     `;

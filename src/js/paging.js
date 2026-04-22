@@ -368,7 +368,7 @@ function changePage(page){
 				<title>Document</title>
 			</head>
 			<body>
-				<form action="" method="post">
+				<form action="Invoice.html" method="get">
 					<h1 class="title">create invoice</h1>
 						<div class="ClientInfo">
 							<h2>Client info:</h2>
@@ -385,18 +385,22 @@ function changePage(page){
 							<input type="date" id="Expdate" name="Expdate">
 							<br>
 						</div>
-						<div class="addItem">
+						<div class="addItem" id="addItemDiv">
 							<h2>Add item:</h2>
-
-							<label for="itemDiscription">discription:</label>
-							<input type="text" id="itemDiscription" name="itemDiscription">
-							<label for="itemAmount">amount:</label>
-							
-							<input type="number" id="itemAmount" name="itemAmount">
-							<button type="button" id="addItemButton">+</button>
+							<div id="itemDiv0">
+								<label for="itemDiscription0">discription:</label>
+								<input type="text" id="itemDiscription0" name="itemDiscription0">
+								<label for="itemAmount0">amount:</label>
+								<input type="number" id="itemAmount0" name="itemAmount0">
+								<div id="addItemButtonContainer">
+								<button type="button" id="addItemButton" onclick="addItem()">+</button>
+								</div>
+							</div>
 							<br>
 						</div>
+						<button type="submit">send invoice</button>
 				</form>
+				<script src="/metal_bricks/src/js/createInvoice.js"></script>
 			</body>
 			</html>
 		`;
