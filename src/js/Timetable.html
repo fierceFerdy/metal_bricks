@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>NeutralinoJs</title>
+    <link rel="stylesheet" href="/src/assets/_scss/style.css">
+  </head>
+
+  <body>
+    <div class="row">
+      <h1>TimeTable</h1>
+      <p>1. select your workhours for today:
+          <br>today:
+      </p>
+        <div class="row">
+          <div class="contentWrapper">
+            <div id="content" class="content">
+              <!--  -->
+              <div class="w-1/3 arrival">
+                <div class="arrivalInput">
+                  <label class="w-1/4" for="arrivalInput"><h3>Arrival:</h3></label>
+                  <input class="w-3/4" type="text" name="arrivalInput" id="arrivalInput">
+                </div>
+              </div>
+
+              <div class="w-1/3 break">
+                <div class="breakInput">
+                  <label class="w-1/4" for="breakInput"><h3>Break:</h3></label>
+                  <input class="w-3/4" type="text" name="breakInput" id="breakInput">
+                </div>
+              </div>
+              <!--  -->
+              <div class="w-1/3 start">
+                <div class="startInput">
+                  <label class="w-1/4" for="startInput"><h3>Start:</h3></label>
+                  <input class="w-3/4" type="text" name="startInput" id="startInput">
+                </div>
+              </div>
+              <div class="w-1/3 departure">
+                <div class="departureInput">
+                  <label class="w-1/4" for="departureInput"><h3>Break:</h3></label>
+                  <input class="w-3/4" type="text" name="departureInput" id="departureInput">
+                </div>
+              </div>
+            </div>
+          <div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="contentWrapper">
+            <div id="content" class="content">
+              <div class="table">
+                <table>
+                  
+                  <tbody>
+                    <tr>
+                      <th class="bg">day</th>
+                      <th class="bg">start</th>
+                      <th class="bg">end</th>
+                      <th class="bg">break</th>
+                      <th class="bg">Net</th>
+                    </tr>
+                    <tr>
+                      <th class="bg">Monday</th>
+                      <td id="arrivalTimeMonday"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th class="bg">Tuesday</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th class="bg">Wednesday</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th class="bg">Thursday</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th class="bg">Friday</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th class="bg">Saturday</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th class="bg">Sunday</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                      
+                  </tbody>
+                  <tfoot>
+                    <div class="totalWeekHours">Total hours this week: </div>
+                  </tfoot>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  
+  
+  
+  
+  
+  
+  
+
+    <script>
+        document.getElementById('arrivalInput').addEventListener('keyup', function(){
+            console.log('oy')
+            var today = new Date();
+            var dayCode = today.getDay();
+            console.log(dayCode);
+            if(dayCode == 0){
+                
+            }else if(dayCode == 1){
+                document.getElementById('arrivalTimeMonday').innerHTML = document.getElementById('arrivalInput').textContent;
+            }else if(dayCode == 2){
+                document.getElementById('arrivalTimeTuesday').innerHTML = document.getElementById('arrivalInput').textContent;
+            }else if(dayCode == 3){
+                document.getElementById('arrivalTimeWednesday').innerHTML = document.getElementById('arrivalInput').textContent;
+            }else if(dayCode == 4){
+                document.getElementById('arrivalTimeThursday').innerHTML = document.getElementById('arrivalInput').textContent;
+            }else if(dayCode == 5){
+                document.getElementById('arrivalTimeFriday').innerHTML = document.getElementById('arrivalInput').textContent;
+            }else if(dayCode == 6){
+                document.getElementById('arrivalTimeSaturday').innerHTML = document.getElementById('arrivalInput').textContent;
+            }
+
+        })
+    </script>
+
+  
+  
+  
+
+  </body>
+</html>

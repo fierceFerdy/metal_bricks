@@ -85,10 +85,12 @@ class Factuur{
     this.klant = klant;
   } 
 }
-klant1 = new Klant('dqd','dsqdsq','qdsqsd', 'sdqsdq','dsffsd')
-product1 = new FactuurProduct(1, 'hallo', 3)
-factuur1 = new Factuur(456,456,456, product1, klant1)
+var klant1 = new Klant('dqd','dsqdsq','qdsqsd', 'sdqsdq','dsffsd')
+var product1 = new FactuurProduct(1, 'hallo', 3)
+var factuur1 = new Factuur(456,456,456, product1, klant1)
 
 
 
+console.log(klant1);
+console.log(product1);
 console.log(factuur1);
