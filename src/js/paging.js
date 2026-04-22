@@ -32,6 +32,7 @@ function changePage(page){
     }else if(newPage == 'clientsHTML'){
         
         document.getElementById('content').innerHTML = `
+		<form action="insert.php" method="post">
 			<div class="row">
 				<div class="contentWrapper">
 					<div class="content">
@@ -65,10 +66,62 @@ function changePage(page){
 							</tr>
 						</table>
 
-						<a href='' class='btn'>Add client</a>
+						
 					</div>
 				</div>
 			</div>
+
+			//  <button onclick="showForm class='btn('form1')">Show Form</button>
+
+			// Client form to add new clients//
+			<div id="form1" class="form-container">
+				<h2>Client form </h2>
+				<form>
+				<label for="client">Client id:</label>
+				<input type="text" id="Client id" name="Client id">
+				<br>
+				<label for="name">Name:</label>
+      			<input type="text" id="Name" name="Name">
+      			<br>
+				<label for="registerd">Registerd on:</label>
+      			<input type="text" id="registerd" name="registerd">
+				<br>
+				<label for="lead">Lead origin:</label>
+      			<input type="text" id="lead" name="lead">
+				<br>
+				<label for="postal">Postal code:</label>
+      			<input type="text" id="postal" name="postal">
+				<br>
+				<label for="city">City:</label>
+      			<input type="text" id="city" name="city">
+				<br>
+				<label for="street">Name:</label>
+      			<input type="text" id="street" name="street">
+				
+				<br>
+				<a href='' class='btn'>Add client</a>
+    			</form>
+ 		 </div>
+
+		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         `;
 
 
