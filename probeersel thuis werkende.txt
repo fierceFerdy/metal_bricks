@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Client Database</title>
+</head>
+<body>
+
+  <h2>Nieuwe klant</h2>
+
+  <form id="clientForm">
+    <input type="text" id="name" placeholder="Naam" required />
+    <input type="email" id="email" placeholder="E-mail" required />
+    <input type="text" id="phone" placeholder="Telefoon" required />
+    <button type="submit">Add client</button>
+  </form>
+
+  <h2>Klantenlijst</h2>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>E-mail</th>
+        <th>Telefoon</th>
+      </tr>
+    </thead>
+    <tbody id="clientTableBody"></tbody>
+  </table>
+
+  <script src="neutralino.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+// Start Neutralino
+Neutralino.init();
+
+let clients = [];
+
+//  Laden bij opstart
+async function loadClients() {
+  try {
+    const data = await Neutralino.storage.getData("clients");
+    clients = data ? JSON.parse(data) : [];
+  } catch (e) {
+    clients = [];
+  }
+
+  renderClients();
+}
+
+//  Opslaan
+async function saveClients() {
+  await Neutralino.storage.setData("clients", JSON.stringify(clients));
+}
+
+//  Tabel renderen
+function renderClients() {
+  const tbody = document.getElementById("clientTableBody");
+  tbody.innerHTML = "";
+
+  clients.forEach(client => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${client.name}</td>
+      <td>${client.email}</td>
+      <td>${client.phone}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+//  Form submit
+document.getElementById("clientForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const newClient = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim()
+  };
+
+  clients.push(newClient);
+
+  await saveClients();
+  renderClients();
+
+  e.target.reset();
+});
+
+
+loadClients();
