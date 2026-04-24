@@ -71,6 +71,10 @@
     vertical-align: top;
 }
 
+.w-1\/1 {
+    width: calc(100% - 20px);
+}
+
 .w-1\/2 {
     width: calc(50% - 20px);
 }
