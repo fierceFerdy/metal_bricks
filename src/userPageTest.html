@@ -40,7 +40,7 @@
         <div id="listOfUpcomingTodos"> <!-- has a fixed height, and is scrollable-->
             <!-- moet gefetched worden uit storage -->
             <!-- moet ook via js worden toegevoegd -->
-            <div class="toDo">
+            <div class="toDo" style="display: none;">
                 <p>Today</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
                 <div class="toDoInfoContainer, bg">
                     <h3 id="todoTitle">Title of the todo</h3>
@@ -53,6 +53,9 @@
     <!-- Then again 2 sections though the seconds one is hidden at first -->
         <!-- 1. Lists the appointments appointments by date  -->
 </body>
+
+<script src="storage.js"></script>
+
 
 <script>
 
@@ -83,8 +86,10 @@
             amountOfSpacesOnCalendar++
         }
     document.getElementById('calendarBody').appendChild(tr);
+        
+    var daysInMonth = getDaysInMonth(currentYear, currentMonthCode + 1)
 
-        for (let index = 1; index < 31; index++) { // TODO: month length should change according to month
+        for (let index = 1; index <= daysInMonth; index++) {
 
             if(amountOfSpacesOnCalendar % 7 != 0){
 
@@ -110,9 +115,62 @@
             amountOfSpacesOnCalendar++
         }
         
-        console.log(amountOfSpacesOnCalendar)
 
 
+
+       // Displaying upcoming todos from storage
+       
+        // Data: 
+        const Todos = [
+            {
+                TodoID: 1,
+                title: 'Very good title for a todo',
+                description: 'Lorem Ipsum dolor sit amet,...',
+                user: 0,
+                deadlineDate: '30/4/2026',
+                deadlineTime: '17:30',
+            },
+            {
+                TodoID: 2,
+                title: 'Very good title for a todo 2',
+                description: 'Lorem Ipsum dolor sit amet,...',
+                user: 0,
+                deadlineDate: '8/5/2026',
+                deadlineTime: '13:30',
+            },
+            {
+                TodoID: 3,
+                title: 'Very good title for a todo 3',
+                description: 'Lorem Ipsum dolor sit amet,...',
+                user: 0,
+                deadlineDate: '18/5/2026',
+                deadlineTime: '14:30',
+            },
+            {
+                TodoID: 4,
+                title: 'Very good title for a todo 4',
+                description: 'Lorem Ipsum dolor sit amet,...',
+                user: 1,
+                deadlineDate: '23/5/2026',
+                deadlineTime: '11:00',
+            },
+        ];
+
+        // TODO: Date still needs to work properly, The todos should automatically be ordered by time and todos from the past should dissapear.
+        for (let index = 0; index < Todos.length; index++) {
+            if(Todos[index].user == 0){
+                document.getElementById('listOfUpcomingTodos').innerHTML += `
+                    <div class="toDo">
+                        <p>`+ Todos[index].deadlineDate +`</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+                        <div class="toDoInfoContainer, bg">
+                            <h3 id="todoTitle">`+ Todos[index].title +`</h3>
+                            <p>`+ Todos[index].deadlineTime +`</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+                        </div>
+                    </div>
+                `
+            }
+            
+        }
 
     function turnMonthCodeIntoWord(currentMonthCode){
         if(currentMonthCode == 0){
@@ -159,5 +217,13 @@
             return 'Saturday';
         }
     }
+
+    function getDaysInMonth(year, month) {
+        return new Date(year, month, 0).getDate();
+    }
+
+    //TODO: dit aanpassen zodat het deze data uit neutralino storage haalt (momenteel is het enkel op deze manier zodat het via liveserver kan getoont worden.)
+
 </script>
+
 </html>

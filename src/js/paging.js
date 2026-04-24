@@ -32,6 +32,7 @@ function changePage(page){
     }else if(newPage == 'clientsHTML'){
         
         document.getElementById('content').innerHTML = `
+		<form action="insert.php" method="post">
 			<div class="row">
 				<div class="contentWrapper">
 					<div class="content">
@@ -65,10 +66,62 @@ function changePage(page){
 							</tr>
 						</table>
 
-						<a href='' class='btn'>Add client</a>
+						
 					</div>
 				</div>
 			</div>
+
+			//  <button onclick="showForm class='btn('form1')">Show Form</button>
+
+			// Client form to add new clients//
+			<div id="form1" class="form-container">
+				<h2>Client form </h2>
+				<form>
+				<label for="client">Client id:</label>
+				<input type="text" id="Client id" name="Client id">
+				<br>
+				<label for="name">Name:</label>
+      			<input type="text" id="Name" name="Name">
+      			<br>
+				<label for="registerd">Registerd on:</label>
+      			<input type="text" id="registerd" name="registerd">
+				<br>
+				<label for="lead">Lead origin:</label>
+      			<input type="text" id="lead" name="lead">
+				<br>
+				<label for="postal">Postal code:</label>
+      			<input type="text" id="postal" name="postal">
+				<br>
+				<label for="city">City:</label>
+      			<input type="text" id="city" name="city">
+				<br>
+				<label for="street">Name:</label>
+      			<input type="text" id="street" name="street">
+				
+				<br>
+				<a href='' class='btn'>Add client</a>
+    			</form>
+ 		 </div>
+
+		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         `;
 
 
@@ -368,7 +421,7 @@ function changePage(page){
 				<title>Document</title>
 			</head>
 			<body>
-				<form action="" method="post">
+				<form action="Invoice.html" method="get">
 					<h1 class="title">create invoice</h1>
 						<div class="ClientInfo">
 							<h2>Client info:</h2>
@@ -385,18 +438,22 @@ function changePage(page){
 							<input type="date" id="Expdate" name="Expdate">
 							<br>
 						</div>
-						<div class="addItem">
+						<div class="addItem" id="addItemDiv">
 							<h2>Add item:</h2>
-
-							<label for="itemDiscription">discription:</label>
-							<input type="text" id="itemDiscription" name="itemDiscription">
-							<label for="itemAmount">amount:</label>
-							
-							<input type="number" id="itemAmount" name="itemAmount">
-							<button type="button" id="addItemButton">+</button>
+							<div id="itemDiv0">
+								<label for="itemDiscription0">discription:</label>
+								<input type="text" id="itemDiscription0" name="itemDiscription0">
+								<label for="itemAmount0">amount:</label>
+								<input type="number" id="itemAmount0" name="itemAmount0">
+								<div id="addItemButtonContainer">
+								<button type="button" id="addItemButton" onclick="addItem()">+</button>
+								</div>
+							</div>
 							<br>
 						</div>
+						<button type="submit">send invoice</button>
 				</form>
+				<script src="/metal_bricks/src/js/createInvoice.js"></script>
 			</body>
 			</html>
 		`;

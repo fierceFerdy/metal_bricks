@@ -1,4 +1,29 @@
+document.addEventListener("DOMContentLoaded", function(){
+  var urlString = window.location.href;
+  urlParams = parseURLParams(urlString);
 
+  document.getElementById("invoice").innerHTML = "test"
+})
+
+function parseURLParams(url) {
+  var queryStart = url.indexOf("?") + 1,
+      queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+      query = url.slice(queryStart, queryEnd - 1),
+      pairs = query.replace(/\+/g, " ").split("&"),
+      parms = {}, i, n, v, nv;
+
+  if (query === url || query === "") return;
+
+  for (i = 0; i < pairs.length; i++) {
+      nv = pairs[i].split("=", 2);
+      n = decodeURIComponent(nv[0]);
+      v = decodeURIComponent(nv[1]);
+
+      if (!parms.hasOwnProperty(n)) parms[n] = [];
+      parms[n].push(nv.length === 2 ? v : null);
+  }
+  return parms;
+}
 
 
 const invoice = {
@@ -30,28 +55,6 @@ const invoice = {
   'Totale prijs:': 11
 
 };
-
-// class Invoice{
-
-//   constructor(factuurNr, datum, vervalDatum, bedrijfNaam, bedrijfStraat, bedrijfStad, bedrijfPostcode, klantNaam, klantStraat, klantStad){
-//     this.factuurNr = factuurNr;
-//     this.datum = datum;
-//     this.vervalDatum = vervalDatum;
-//     this.bedrijfNaam = bedrijfNaam;
-//     this.bedrijfStraat = bedrijfStraat;
-//     this.bedrijfStad = bedrijfStad;
-//     this.bedrijfStad = bedrijfPostcode;
-//     this.klantNaam = klantNaam;
-//     this.klantStraat = klantStraat;
-//     this.klantStad = klantStad;
-//   }
-
-// }
-
-// const invoice2 = new Invoice(123, 0-0-0, 0-0-0, "Metal Bricks", "begijnhoflaan 1",);
-// console.log(invoice2);
-
-
 
 class Klant{
   constructor(naam, straat, straatNr, stad, postcode, IBAN){
