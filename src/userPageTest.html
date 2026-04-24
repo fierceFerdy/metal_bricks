@@ -1,3 +1,4 @@
+<!-- TODO: make everything more readable -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +11,44 @@
      <h1 id="variableGreeting">Good evening</h1>
     <!-- Two sections parting page centrally -->
         <!-- 1. Displays current day and month appointment overview with just the day displaying in a different color if something is happening then-->
-    <div id="dayStatus" class="bg">
-        <p id="currentDay">Wednesday</p>
-        <h1 id="monthDayDisplay">December 10</h1>
-        <h2>2 Upcoming events</h2>
-    </div>
-    <div class="calendar">
-        <table>
-            <thead>
-                <th>Sun</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-            </thead>
-            <tbody id="calendarBody">
-                <!-- JS function to see what day of the week the month begins, so April 1 -->
-                 <script>
-                 </script>
-            </tbody>
-        </table>
+    <div class="w-1/2">
+        <div id="dayStatus" class="w-3/5 bg">
+            <p id="currentDay">Wednesday</p>
+            <h1 id="monthDayDisplay">December 10</h1>
+            <h2>2 Upcoming events</h2>
+        </div>
+        <div class="calendar">
+            <table>
+                <thead>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </thead>
+                <tbody id="calendarBody">
+                    <!-- JS function to see what day of the week the month begins, so April 1 -->
+                    <script>
+                    </script>
+                </tbody>
+            </table>
+        </div>
     </div>
         <!-- 2. List op upcoming To-do's with an add To-do button -->
-    <div>
-        <h2>Upcoming To-do's</h2>
-        <button>+</button>
+    <div class="w-1/2" style="margin: 5px;">
+        <div class="createATodo bg" id="createATodo" style="display: none;">
+            <h1>Create a To-do</h1>
+            <label for="dateInput" class="w-1/3">Date*:</label>
+            <input type="text" name="dateInput", id="dateInput" class="w-2/3" required>
+            <label for="titleInput" class="w-1/3">Title*:</label>
+            <input type="text" name="titleInput", id="titleInput" class="w-2/3" required>
+            <label for="hourInput" class="w-1/3">Hour*:</label>
+            <input type="text" name="hourInput", id="hourInput" class="w-2/3" required>
+            <button class="btn black w-1/1">Add</button>
+        </div>
+        <h2>Upcoming To-do's <button id="addToDoButton" style="font-size: 21px;">+</button></h2>
         <div id="listOfUpcomingTodos"> <!-- has a fixed height, and is scrollable-->
             <!-- moet gefetched worden uit storage -->
             <!-- moet ook via js worden toegevoegd -->
@@ -52,7 +64,6 @@
     <!-- Appointments section: add appointment button next to header -->
     <!-- Then again 2 sections though the seconds one is hidden at first -->
         <!-- 1. Lists the appointments appointments by date  -->
-</body>
 
 <script src="storage.js"></script>
 
@@ -66,7 +77,13 @@
     var currentMonthCode = today.getMonth();
     var currentMonth = turnMonthCodeIntoWord(currentMonthCode);
     
-    document.getElementById('variableGreeting').innerHTML = 
+    greetings = new Array('Hello', 'Welcome', 'Oi', 'Greetings', 'Good day!', 'Hey', 'Yo!', 'Got plans?', 'Terraria is 2d Minecraft')
+
+
+    
+    //'Wat is rood bubbelt en luid?' 'een baby in de microgolf'.
+    
+    document.getElementById('variableGreeting').innerHTML = greetings[getRandomInt(greetings.length)];
     document.getElementById('currentDay').innerHTML = turnDayCodeIntoWord(today.getDay());
     document.getElementById('monthDayDisplay').innerHTML = currentMonth + ' ' + today.getDate();
 
@@ -116,9 +133,20 @@
         }
         
 
-
-
-       // Displaying upcoming todos from storage
+        //Make it so when the button is pressed, it opens the 'Add To-do page'
+        addToDoActive = false;
+        document.getElementById('addToDoButton').addEventListener('click', function(){
+            if(!addToDoActive){
+                document.getElementById('createATodo').style.display = 'block';
+                addToDoActive = true;
+            }else{
+                document.getElementById('createATodo').style.display = 'none';
+                addToDoActive = false;
+            }
+        })
+        
+        
+        // Displaying upcoming todos from storage
        
         // Data: 
         const Todos = [
@@ -153,6 +181,22 @@
                 user: 1,
                 deadlineDate: '23/5/2026',
                 deadlineTime: '11:00',
+            },
+            {
+                TodoID: 5,
+                title: 'Very good title for a todo 5',
+                description: 'Lorem Ipsum dolor sit amet,...',
+                user: 2,
+                deadlineDate: '25/5/2026',
+                deadlineTime: '13:00',
+            },
+            {
+                TodoID: 6,
+                title: 'Very good title for a todo 6',
+                description: 'Lorem Ipsum dolor sit amet,...',
+                user: 0,
+                deadlineDate: '30/5/2026',
+                deadlineTime: '17:00',
             },
         ];
 
@@ -222,8 +266,12 @@
         return new Date(year, month, 0).getDate();
     }
 
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
     //TODO: dit aanpassen zodat het deze data uit neutralino storage haalt (momenteel is het enkel op deze manier zodat het via liveserver kan getoont worden.)
 
 </script>
+</body>
 
 </html>
