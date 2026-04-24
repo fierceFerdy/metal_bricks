@@ -32,7 +32,7 @@
 
               <div class="w-1/3 start">
                 <div class="startInput">
-                  <label class="w-1/4" for="startInput"><h3>Start:</h3></label>
+                  <label class="w-1/4" for="startInput"><h3>Break end:</h3></label>
                   <input class="w-3/4" type="text" name="startInput" id="startInput">
                 </div>
               </div>
@@ -67,52 +67,55 @@
                       <td class="todayStart"></td>
                       <td class="todayEnd"></td>
                       <td class="todayBreak"></td>
-                      <td class="todayNet"></td></tr>
+                      <td class="todayNet" id="todayNet1"></td></tr>
                     <tr id="row-2">
                       <th class="bg">Tuesday</th>
                       <td class="t-start"></td>
                       <td class="todayEnd"></td>
                       <td class="todayBreak"></td>
-                      <td class="todayNet"></td>
+                      <td class="todayNet" id="todayNet2"></td>
                     </tr>                    
                     <tr id="row-3">
                       <th class="bg">Wednesday</th>
                       <td class="todayStart"></td>
                       <td class="todayEnd"></td>
                       <td class="todayBreak"></td>
-                      <td class="todayNet"></td>
+                      <td class="todayNet" id="todayNet3"></td>
                     </tr>
                     <tr id="row-4">
                       <th class="bg">Thursday</th>
                       <td class="todayStart"></td>
                       <td class="todayEnd"></td>
                       <td class="todayBreak"></td>
-                      <td class="todayNet"></td>
+                      <td class="todayNet" id="todayNet4"></td>
                     </tr>
                     <tr id="row-5">
                       <th class="bg">Friday</th>
                       <td class="todayStart"></td>
                       <td class="todayEnd"></td>
                       <td class="todayBreak"></td>
-                      <td class="todayNet"></td>
+                      <td class="todayNet" id="todayNet5"></td>
                     </tr>
                     <tr id="row-6">
                       <th class="bg">Saturday</th>
                       <td class="todayStart"></td>
                       <td class="todayEnd"></td>
                       <td class="todayBreak"></td>
-                      <td class="todayNet"></td>
+                      <td class="todayNet" id="todayNet6"></td>
                     </tr>
                     <tr id="row-0">
                       <th class="bg">Sunday</th>
                       <td class="todayStart"></td>
                       <td class="todayEnd"></td>
                       <td class="todayBreak"></td>
-                      <td class="todayNet"></td>
+                      <td class="todayNet" id="todayNet0"></td>
                     </tr>
                   </tbody>
                   <tfoot>
-
+                    <tr>
+                      <th>Total hours this week:</th>
+                      <td class="weekTotal" id="weekTotal"></td>
+                    </tr>
                   </tfoot>
                 </table>
               </div>
@@ -123,7 +126,7 @@
 
     <script>
         // Functie die de tabel bijwerkt voor de dag van vandaag
-        function updatedToday() {
+        function table() {
           //var dayCode = new Date().getDay();
             var today = new Date();
             var dayCode = today.getDay(); // 0-6 = zondag-maandag-...
@@ -134,14 +137,25 @@
                 var arrival = document.getElementById('arrivalInput').value;
                 var breakEnd = document.getElementById('startInput').value;
                 var breakStart = document.getElementById('breakInput').value;
-                var breakTime = breakEnd - breakStart;
                 var end = document.getElementById('departureInput').value;
+                var breakTime = breakEnd - breakStart;
+                var net = (end - arrival) - breakTime;
 
-                // We vullen de cellen in de rij van vandaag
-                // Ik gebruik hier 'arrival' voor de start kolom, pas dit aan indien gewenst
-                row.querySelector('.todayStart').innerText = arrival;
-                row.querySelector('.todayEnd').innerText = end;
-                row.querySelector('.todayBreak').innerText = breakTime;
+                for (i = 0; i <= 6; i++) {
+                  weekTotal = 0
+                  console.log('todayNet' + i);
+                  dayTotal = document.getElementById('todayNet' + i).value;
+                  console.log(dayTotal)
+                  weekTotal += dayTotal;
+                }
+                // console.log(weekTotal)
+
+                // Put data in today's rows
+                row.querySelector('.todayStart').innerHTML = arrival;
+                row.querySelector('.todayEnd').innerHTML = end;
+                row.querySelector('.todayBreak').innerHTML = breakTime;
+                row.querySelector('.todayNet').innerHTML = net;
+                document.getElementById('weekTotal').innerHTML = weekTotal;
             }
             // if(){}
         }
@@ -149,8 +163,9 @@
         // Luister naar alle inputs tegelijk
         const inputIds = ['arrivalInput', 'breakInput', 'startInput', 'departureInput'];
         inputIds.forEach(function(id) {
-            document.getElementById(id).addEventListener('keyup', updatedToday);
+            document.getElementById(id).addEventListener('keyup', table);
         });
+
     </script>
 
   </body>
