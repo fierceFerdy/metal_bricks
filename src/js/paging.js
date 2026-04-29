@@ -381,8 +381,8 @@ function changePage(page){
 							<input type="date" id="startDate" name="startDate">
 							<br>
 
-							<label for="Expdate">Expiration date:</label>
-							<input type="date" id="Expdate" name="Expdate">
+							<label for="expDate">Expiration date:</label>
+							<input type="date" id="expDate" name="expDate">
 							<br>
 						</div>
 						<div class="addItem" id="addItemDiv">
@@ -398,7 +398,7 @@ function changePage(page){
 							</div>
 							<br>
 						</div>
-						<button type="submit">send invoice</button>
+						<button type="submit">Create invoice</button>
 				</form>
 				<script src="/metal_bricks/src/js/createInvoice.js"></script>
 			</body>
