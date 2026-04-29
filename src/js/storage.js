@@ -1,5 +1,5 @@
 // Nick
-Neutralino.init();
+Neutralino.init();// heel belangrijk
 
 // const userData = {
 //     name: "Frank Boterman",
@@ -147,3 +147,28 @@ async function clearStorage(){
 // What needs to be saved from the agenda/ appointment page 
 // everyone is currently the same user
 // The appoinment title, the user for which the appointment is, the day / time of the appointment,
+
+// Is an object really a good idea?? --> Security issues? How else should things be stored? [QUESTION]
+
+const Todos = [
+    {
+        TodoID: 1,
+        title: 'Very good title for a todo',
+        user: 0,
+        deadlineDate: '30/4/2026',
+        deadlineTime: '17:30',
+    },
+];
+
+async function setTodos(){
+    await Neutralino.storage.setData('Todos',
+    JSON.stringify(Todos)
+    );
+}
+setTodos();
+
+
+async function getTodos(){
+    let data = await Neutralino.storage.getData('Todos');
+    return data
+}

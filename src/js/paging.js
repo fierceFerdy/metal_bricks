@@ -32,6 +32,7 @@ function changePage(page){
     }else if(newPage == 'clientsHTML'){
         
         document.getElementById('content').innerHTML = `
+		<form action="insert.php" method="post">
 			<div class="row">
 				<div class="contentWrapper">
 					<div class="content">
@@ -41,6 +42,7 @@ function changePage(page){
 
 
 						<table>
+						<thead>
 							<tr>
 								<th>Client ID</th>
 								<th>Name</th>
@@ -63,12 +65,51 @@ function changePage(page){
 								<td>edit</td>
 								<td>x</td>
 							</tr>
+						</thead>
+						<tbody id="clientTableBody"></tbody>
 						</table>
 
-						<a href='' class='btn'>Add client</a>
+						
 					</div>
 				</div>
 			</div>
+
+			
+
+			// Client form to add new clients//
+			<div id="form1" class="form-container">
+				<h2>Client form </h2>
+				<form>
+				<label for="client">Client id:</label>
+				<input type="text" id="clientid" name="clientid">
+				<br>
+				<label for="name">Name:</label>
+      			<input type="text" id="Name" name="Name">
+      			<br>
+				<label for="registerd">Registerd on:</label>
+      			<input type="text" id="registerd" name="registerd">
+				<br>
+				<label for="lead">Lead origin:</label>
+      			<input type="text" id="lead" name="lead">
+				<br>
+				<label for="postal">Postal code:</label>
+      			<input type="text" id="postal" name="postal">
+				<br>
+				<label for="city">City:</label>
+      			<input type="text" id="city" name="city">
+				<br>
+				<label for="street">Name:</label>
+      			<input type="text" id="street" name="street">
+				
+				<br>
+				<button type="submit">Add client</button>
+    			</form>
+ 		 </div>
+  	/form>
+
+	
+
+  	
         `;
 
 
@@ -76,14 +117,187 @@ function changePage(page){
         
         document.getElementById('content').innerHTML = `
 			<div class="row">
+			<h1>TimeTable</h1>
+			<p>1. select your workhours for today:
+				<br>today:
+			</p>
+				<div class="row">
 				<div class="contentWrapper">
-					<div class="content">
-            			<h1>Timetable</h1>
+					<div id="content" class="content">
+					
+					<div class="w-1/3 arrival">
+						<div class="arrivalInput">
+						<label class="w-1/4" for="arrivalInput"><h3>Arrival:</h3></label>
+						<input class="w-3/4" type="text" name="arrivalInput" id="arrivalInput">
+						</div>
+					</div>
+
+					<div class="w-1/3 break">
+						<div class="breakInput">
+						<label class="w-1/4" for="breakInput"><h3>Break:</h3></label>
+						<input class="w-3/4" type="text" name="breakInput" id="breakInput">
+						</div>
+					</div>
+
+					<div class="w-1/3 start">
+						<div class="startInput">
+						<label class="w-1/4" for="startInput"><h3>Break end:</h3></label>
+						<input class="w-3/4" type="text" name="startInput" id="startInput">
+						</div>
+					</div>
+
+					<div class="w-1/3 departure">
+						<div class="departureInput">
+						<label class="w-1/4" for="departureInput"><h3>End:</h3></label>
+						<input class="w-3/4" type="text" name="departureInput" id="departureInput">
+						</div>
+					</div>
 					</div>
 				</div>
+				</div>
+
+				<div class="row">
+				<div class="contentWrapper">
+					<div id="content" class="content">
+					<div class="table">
+						<table>
+						<thead>
+							<tr>
+							<th class="bg">day</th>
+							<th class="bg">start</th>
+							<th class="bg">end</th>
+							<th class="bg">break</th>
+							<th class="bg">Net</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="row-1">
+							<th class="bg">Monday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet1"></td></tr>
+							<tr id="row-2">
+							<th class="bg">Tuesday</th>
+							<td class="t-start"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet2"></td>
+							</tr>                    
+							<tr id="row-3">
+							<th class="bg">Wednesday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet3"></td>
+							</tr>
+							<tr id="row-4">
+							<th class="bg">Thursday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet4"></td>
+							</tr>
+							<tr id="row-5">
+							<th class="bg">Friday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet5"></td>
+							</tr>
+							<tr id="row-6">
+							<th class="bg">Saturday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet6"></td>
+							</tr>
+							<tr id="row-0">
+							<th class="bg">Sunday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet0"></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+							<th>Total hours this week:</th>
+							<td class="weekTotal" id="weekTotal"></td>
+							</tr>
+						</tfoot>
+						</table>
+					</div>
+					</div>
+				</div>
+				</div>
 			</div>
+
         `;
 
+		// Luister naar alle inputs tegelijk
+		const inputIds = ['arrivalInput', 'breakInput', 'startInput', 'departureInput'];
+			inputIds.forEach(function(id) {
+				document.getElementById(id).addEventListener('keyup', table);
+			});
+			// Functie die de tabel bijwerkt voor de dag van vandaag
+		function table() {
+			var dayCode = new Date().getDay(); //beter
+				// var today = new Date();
+				// var dayCode = today.getDay(); // 0-6 = zondag-maandag-...
+				var row = document.getElementById('row-' + dayCode);
+
+				if(row) {
+					// get values from inputs
+					var arrival = document.getElementById('arrivalInput').value;
+					var breakEnd = document.getElementById('startInput').value;
+					var breakStart = document.getElementById('breakInput').value;
+					var end = document.getElementById('departureInput').value;
+					var breakTime = breakEnd - breakStart;
+					var net = (end - arrival) - breakTime;
+
+					for (i = 0; i <= 6; i++) {
+					var weekTotal = 0
+					// console.log('todayNet' + i);
+					dayTotal = document.getElementById('todayNet' + dayCode).innerHTML;
+					// console.log(dayTotal);
+					weekTotal += parseInt(dayTotal);
+					// console.log('week total: ' + weekTotal);
+					}
+				
+
+					// Put data in today's rows
+					row.querySelector('.todayStart').innerHTML = arrival;
+					row.querySelector('.todayEnd').innerHTML = end;
+					row.querySelector('.todayBreak').innerHTML = breakTime;
+					row.querySelector('.todayNet').innerHTML = net;
+					document.getElementById('weekTotal').innerHTML = weekTotal;
+				}
+			
+		}
+		
+		
+
+		const dayData = [
+			{arrival: document.getElementById('arrivalInput').value,
+			breakStart: document.getElementById('breakInput').value,
+			breakEnd: document.getElementById('startInput').value,
+			breakTime: breakEnd - breakStart,
+			net: (end - arrival) - breakTime},
+			dayTotal = document.getElementById('todayNet' + i).innerHTML,
+			weekTotal = weekTotal + parseInt(dayTotal)
+		]
+
+		async function setDayData(){
+			await Neutralino.storage.setData('dayData', JSON.stringify(dayData));
+		}
+		console.log(logsetDayData()); 
+
+		async function getDayData(){
+			let data = await Neutralino.storage.getData('dayData');
+			return data
+		}
+		console.log(getDayData());
 
     }else if(newPage == 'HRHTML'){
         
@@ -404,6 +618,349 @@ function changePage(page){
 			</body>
 			</html>
 		`;
+	}else if(newPage == 'userPageHTML'){
+		document.getElementById('content').innerHTML = `
+			<h1 class ="w-1" id="variableGreeting">Good evening</h1>
+			<!-- Two sections parting page centrally -->
+				<!-- 1. Displays current day and month appointment overview with just the day displaying in a different color if something is happening then-->
+			<div class="w-1/2">
+				<div id="dayStatus" class="w-3/5 bg">
+					<p id="currentDay">Wednesday</p>
+					<h1 id="monthDayDisplay">December 10</h1>
+					<h2>2 Upcoming events</h2>
+				</div>
+				<div class="calendar">
+					<table>
+						<thead>
+							<th>Sun</th>
+							<th>Mon</th>
+							<th>Tue</th>
+							<th>Wed</th>
+							<th>Thu</th>
+							<th>Fri</th>
+							<th>Sat</th>
+						</thead>
+						<tbody id="calendarBody">
+							<!-- JS function to see what day of the week the month begins, so April 1 -->
+							<script>
+							</script>
+						</tbody>
+					</table>
+				</div>
+			</div>
+				<!-- 2. List op upcoming To-do's with an add To-do button -->
+			<div class="w-1/2" style="margin: 5px;">
+				<div class="createATodo bg" id="createATodo" style="display: none;">
+					<h1>Create a To-do</h1>
+					<label for="dateInput" class="w-1/3">Date*:</label>
+					<input type="text" name="dateInput", id="dateInput" class="w-2/3" required>
+					<label for="titleInput" class="w-1/3">Title*:</label>
+					<input type="text" name="titleInput", id="titleInput" class="w-2/3" required>
+					<label for="hourInput" class="w-1/3">Hour*:</label>
+					<input type="text" name="hourInput", id="hourInput" class="w-2/3" required>
+					<button class="btn black w-1/1">Add</button>
+				</div>
+				<h2>Upcoming To-do's <button id="addToDoButton" style="font-size: 21px;">+</button></h2>
+				<div id="listOfUpcomingTodos"> <!-- has a fixed height, and is scrollable-->
+					<!-- moet gefetched worden uit storage -->
+					<!-- moet ook via js worden toegevoegd -->
+					<div class="toDo" style="display: none;">
+						<p>Today</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+						<div class="toDoInfoContainer, bg">
+							<h3 id="todoTitle">Title of the todo</h3>
+							<p>time planned</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<!-- Appointments section: add appointment button next to header -->
+			<div id="appointmentShrinky">
+				<h1 class="w-1/4">Appointments <button id="addAppointmentButton" style="font-size: 21px;">+</button></h1>
+				<div id="listOfUpcomingAppointments"> <!-- has a fixed height, and is scrollable-->
+					<!-- moet gefetched worden uit storage -->
+					<!-- moet ook via js worden toegevoegd -->
+					<div class="appointment" style="display: none;">
+						<p>Today</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+						<div class="appointmentInfoContainer, bg">
+							<h3 id="appointmentTitle">Title of the sppointment</h3>
+							<p>time planned</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="createAAppointment bg w-2/5" id="createAAppointment" style="display: none; vertical-align: top;">
+				<h1>Book an Appointment</h1>
+				<label for="dateInput" class="w-1/3">Date*:</label>
+				<input type="text" name="dateInput", id="dateInput" class="w-2/3" required>
+				<label for="titleInput" class="w-1/3">Title*:</label>
+				<input type="text" name="titleInput", id="titleInput" class="w-2/3" required>
+				<label for="hourInput" class="w-1/3">Hour*:</label>
+				<input type="text" name="hourInput", id="hourInput" class="w-2/3" required>
+				<button class="btn black w-1/1">Add</button>
+			</div>
+			<!-- Then again 2 sections though the seconds one is hidden at first -->
+				<!-- 1. Lists the appointments appointments by date  -->
+				`
+				
+				var today = new Date();
+    
+				var currentMonthCode = today.getMonth();
+				var currentMonth = turnMonthCodeIntoWord(currentMonthCode);
+				
+				greetings = new Array('Hello', 'Welcome', 'Oi', 'Greetings', 'Good day!', 'Hey', 'Yo!', 'Got plans?', 'Terraria is 2d Minecraft')
+			
+			
+				
+				//'Wat is rood bubbelt en luid?' 'een baby in de microgolf'.
+				
+				document.getElementById('variableGreeting').innerHTML = greetings[getRandomInt(greetings.length)];
+				document.getElementById('currentDay').innerHTML = turnDayCodeIntoWord(today.getDay());
+				document.getElementById('monthDayDisplay').innerHTML = currentMonth + ' ' + today.getDate();
+			
+				var currentYear = today.getYear() + 1900
+				
+				
+				var firstDayOfTheMonthString = String(currentYear) + '-' + String(currentMonthCode + 1) + '-1';
+				var firstOfTheMonth = new Date(firstDayOfTheMonthString)
+				var firstDayOfTheMonth = firstOfTheMonth.getDay();
+				
+				// document.getElementById('calendarBody').innerHTML += '<tr>';
+				amountOfSpacesOnCalendar = 0
+				var tr = document.createElement('tr');
+			
+					for (let index = 0; index < firstDayOfTheMonth; index++) {
+						tr.innerHTML += '<td></td>';
+						amountOfSpacesOnCalendar++
+					}
+				document.getElementById('calendarBody').appendChild(tr);
+					
+				var daysInMonth = getDaysInMonth(currentYear, currentMonthCode + 1)
+			
+					for (let index = 1; index <= daysInMonth; index++) {
+			
+						if(amountOfSpacesOnCalendar % 7 != 0){
+			
+							if(index < today.getDate()){
+								tr.innerHTML += '<td style="opacity: .6;">' + String(index) + '</td>' 
+							}else{
+								tr.innerHTML += '<td>' + String(index) + '</td>' 
+							}
+			
+						}else{
+			
+							document.getElementById('calendarBody').appendChild(tr);
+							tr = document.createElement('tr');
+							
+							if(index < today.getDate()){
+								tr.innerHTML += '<td style="opacity: .6;">' + String(index) + '</td>' 
+							}else{
+								tr.innerHTML += '<td>' + String(index) + '</td>' 
+							}
+			
+						}
+						document.getElementById('calendarBody').appendChild(tr);
+						amountOfSpacesOnCalendar++
+					}
+					
+			
+					//Make it so when the button is pressed, it opens the 'Add To-do page'
+					addToDoActive = false;
+					document.getElementById('addToDoButton').addEventListener('click', function(){
+						if(!addToDoActive){
+							document.getElementById('createATodo').style.display = 'block';
+							addToDoActive = true;
+						}else{
+							document.getElementById('createATodo').style.display = 'none';
+							addToDoActive = false;
+						}
+					})
+					
+					
+					// Displaying upcoming todos from storage
+				   
+					// Data: 
+					const Todos = [
+						{
+							TodoID: 1,
+							title: 'Very good title for a todo',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '30/4/2026',
+							deadlineTime: '17:30',
+						},
+						{
+							TodoID: 2,
+							title: 'Very good title for a todo 2',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '8/5/2026',
+							deadlineTime: '13:30',
+						},
+						{
+							TodoID: 3,
+							title: 'Very good title for a todo 3',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '18/5/2026',
+							deadlineTime: '14:30',
+						},
+						{
+							TodoID: 4,
+							title: 'Very good title for a todo 4',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 1,
+							deadlineDate: '23/5/2026',
+							deadlineTime: '11:00',
+						},
+						{
+							TodoID: 5,
+							title: 'Very good title for a todo 5',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 2,
+							deadlineDate: '25/5/2026',
+							deadlineTime: '13:00',
+						},
+						{
+							TodoID: 6,
+							title: 'Very good title for a todo 6',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '30/5/2026',
+							deadlineTime: '17:00',
+						},
+					];
+					const Appointments = [
+						{
+							id: 1,
+							title: 'Very good title for an appointment',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '30/4/2026',
+							deadlineTime: '17:30',
+						},
+						{
+							id: 2,
+							title: 'Very good title for an appointment 2',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '8/5/2026',
+							deadlineTime: '13:30',
+						},
+						{
+							id: 3,
+							title: 'Very good title for an appointment 3',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							Date: '18/5/2026',
+							Time: '14:30',
+						},
+					];
+			
+			
+					// TODO: Date still needs to work properly, The todos should automatically be ordered by time and todos from the past should dissapear.
+					for (let index = 0; index < Todos.length; index++) {
+						if(Todos[index].user == 0){
+							document.getElementById('listOfUpcomingTodos').innerHTML += `
+								<div class="toDo">
+									<p>`+ Todos[index].deadlineDate +`</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+									<div class="toDoInfoContainer, bg">
+										<h3 id="todoTitle">`+ Todos[index].title +`</h3>
+										<p>`+ Todos[index].deadlineTime +`</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+									</div>
+								</div>
+							`
+						}
+						
+					}
+					
+					
+					//Make it so when the button is pressed, it opens the 'Add appointment page'
+					addAppointmentActive = false;
+					document.getElementById('addAppointmentButton').addEventListener('click', function(){
+						if(!addAppointmentActive){
+							document.getElementById('createAAppointment').style.display = 'inline-block';
+							document.getElementById('appointmentShrinky').classList.add('w-1/2');
+							console.log('shrinky')
+							addAppointmentActive = true;
+						}else{
+							document.getElementById('createAAppointment').style.display = 'none';
+							document.getElementById('appointmentShrinky').classList.add('w-2/4');
+							addAppointmentActive = false;
+						}
+					})
+					// TODO: Date still needs to work properly, The todos should automatically be ordered by time and todos from the past should dissapear.
+					for (let index = 0; index < Appointments.length; index++) {
+						if(Appointments[index].user == 0){
+							document.getElementById('listOfUpcomingAppointments').innerHTML += `
+								<div class="Appointment w-1">
+									<p>`+ Appointments[index].deadlineDate +`</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+									<div class="appointmentInfoContainer, bg">
+										<h3 id="appointmentTitle">`+ Appointments[index].title +`</h3>
+										<p>`+ Appointments[index].deadlineTime +`</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+									</div>
+								</div>
+							`
+						}
+						
+					}               
+			
+				function turnMonthCodeIntoWord(currentMonthCode){
+					if(currentMonthCode == 0){
+						return 'January';
+					}else if(currentMonthCode == 1){
+						return 'February';
+					}else if(currentMonthCode == 2){
+						return 'March';
+					}else if(currentMonthCode == 3){
+						return'April';
+					}else if(currentMonthCode == 4){
+						return 'May';
+					}else if(currentMonthCode == 5){
+						return 'June';
+					}else if(currentMonthCode == 6){
+						return 'July';
+					}else if(currentMonthCode == 7){
+						return 'August';
+					}else if(currentMonthCode == 8){
+						return 'September';
+					}else if(currentMonthCode == 9){
+						return 'October';
+					}else if(currentMonthCode == 10){
+						return 'November';
+					}else if(currentMonthCode == 11){
+						return 'December';
+					}
+				}
+			
+				function turnDayCodeIntoWord(currentDayCode){
+					if(currentDayCode == 0){
+						return 'Sunday';
+					}else if(currentDayCode == 1){
+						return 'Monday';
+					}else if(currentDayCode == 2){
+						return 'Tuesday';
+					}else if(currentDayCode == 3){
+						return 'Wednesday';
+					}else if(currentDayCode == 4){
+						return 'Thursday';
+					}else if(currentDayCode == 5){
+						return 'Friday';
+					}else if(currentDayCode == 6){
+						return 'Saturday';
+					}
+				}
+			
+				function getDaysInMonth(year, month) {
+					return new Date(year, month, 0).getDate();
+				}
+			
+				function getRandomInt(max) {
+					return Math.floor(Math.random() * max);
+				}
+				//TODO: dit aanpassen zodat het deze data uit neutralino storage haalt (momenteel is het enkel op deze manier zodat het via liveserver kan getoont worden.)
+			
+
 	}else{
         document.getElementById('content').innerHTML = `
         <h1> 404 PAGE NOT FOUND 404</h1>

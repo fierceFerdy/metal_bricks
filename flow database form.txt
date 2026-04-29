@@ -1,0 +1,29 @@
+App start
+ data laden uit storage
+ array vullen
+ tabel tonen
+
+Gebruiker vult formulier in
+ klikt op knop
+
+Dan:
+ form stopt refresh
+ waarden uitlezen
+ object maken
+
+Daarna:
+ object in array steken
+ array opslaan
+
+Dan:
+ tabel leegmaken
+ alles opnieuw tekenen met array
+
+Resultaat:
+ nieuwe klant staat in tabel
+
+App opnieuw openen
+ data laden
+ tabel terug tonen
+
+form > object > array > opslaan > tabel refreshen
