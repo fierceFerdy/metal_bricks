@@ -125,11 +125,16 @@
     </div>
 
     <script>
+      // Luister naar alle inputs tegelijk
+      const inputIds = ['arrivalInput', 'breakInput', 'startInput', 'departureInput'];
+        inputIds.forEach(function(id) {
+            document.getElementById(id).addEventListener('keyup', table);
+        });
         // Functie die de tabel bijwerkt voor de dag van vandaag
-        function table() {
-          //var dayCode = new Date().getDay();
-            var today = new Date();
-            var dayCode = today.getDay(); // 0-6 = zondag-maandag-...
+      function table() {
+          var dayCode = new Date().getDay(); //beter
+            // var today = new Date();
+            // var dayCode = today.getDay(); // 0-6 = zondag-maandag-...
             var row = document.getElementById('row-' + dayCode);
 
             if(row) {
@@ -142,13 +147,14 @@
                 var net = (end - arrival) - breakTime;
 
                 for (i = 0; i <= 6; i++) {
-                  weekTotal = 0
-                  console.log('todayNet' + i);
-                  dayTotal = document.getElementById('todayNet' + i).value;
-                  console.log(dayTotal)
-                  weekTotal += dayTotal;
+                  var weekTotal = 0
+                  // console.log('todayNet' + i);
+                  dayTotal = document.getElementById('todayNet' + dayCode).innerHTML;
+                  // console.log(dayTotal);
+                  weekTotal += parseInt(dayTotal);
+                  // console.log('week total: ' + weekTotal);
                 }
-                // console.log(weekTotal)
+              
 
                 // Put data in today's rows
                 row.querySelector('.todayStart').innerHTML = arrival;
@@ -156,17 +162,37 @@
                 row.querySelector('.todayBreak').innerHTML = breakTime;
                 row.querySelector('.todayNet').innerHTML = net;
                 document.getElementById('weekTotal').innerHTML = weekTotal;
-            }
-            // if(){}
-        }
+              }
+        
+      }
+      
+      
 
-        // Luister naar alle inputs tegelijk
-        const inputIds = ['arrivalInput', 'breakInput', 'startInput', 'departureInput'];
-        inputIds.forEach(function(id) {
-            document.getElementById(id).addEventListener('keyup', table);
-        });
+      const dayData = [
+        {arrival: document.getElementById('arrivalInput').value,
+        breakStart: document.getElementById('breakInput').value,
+        breakEnd: document.getElementById('startInput').value,
+        breakTime: breakEnd - breakStart,
+        net: (end - arrival) - breakTime},
+        dayTotal = document.getElementById('todayNet' + i).innerHTML,
+        weekTotal = weekTotal + parseInt(dayTotal)
+      ]
+
+      async function setDayData(){
+        await Neutralino.storage.setData('dayData', JSON.stringify(dayData));
+      }
+      console.log(logsetDayData()); 
+
+      async function getDayData(){
+        let data = await Neutralino.storage.getData('dayData');
+        return data
+      }
+      console.log(getDayData());
+
+        
 
     </script>
+    <script src="storage.js"></script>
 
   </body>
 </html>
