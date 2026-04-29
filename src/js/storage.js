@@ -1,5 +1,5 @@
 // Nick
-Neutralino.init();
+Neutralino.init();// heel belangrijk
 
 // const userData = {
 //     name: "Frank Boterman",

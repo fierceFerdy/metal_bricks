@@ -42,6 +42,7 @@ function changePage(page){
 
 
 						<table>
+						<thead>
 							<tr>
 								<th>Client ID</th>
 								<th>Name</th>
@@ -64,6 +65,8 @@ function changePage(page){
 								<td>edit</td>
 								<td>x</td>
 							</tr>
+						</thead>
+						<tbody id="clientTableBody"></tbody>
 						</table>
 
 						
@@ -71,14 +74,14 @@ function changePage(page){
 				</div>
 			</div>
 
-			//  <button onclick="showForm class='btn('form1')">Show Form</button>
+			
 
 			// Client form to add new clients//
 			<div id="form1" class="form-container">
 				<h2>Client form </h2>
 				<form>
 				<label for="client">Client id:</label>
-				<input type="text" id="Client id" name="Client id">
+				<input type="text" id="clientid" name="clientid">
 				<br>
 				<label for="name">Name:</label>
       			<input type="text" id="Name" name="Name">
@@ -99,29 +102,14 @@ function changePage(page){
       			<input type="text" id="street" name="street">
 				
 				<br>
-				<a href='' class='btn'>Add client</a>
+				<button type="submit">Add client</button>
     			</form>
  		 </div>
+  	/form>
 
-		 
+	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  	
         `;
 
 
