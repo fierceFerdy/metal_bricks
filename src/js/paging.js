@@ -117,14 +117,187 @@ function changePage(page){
         
         document.getElementById('content').innerHTML = `
 			<div class="row">
+			<h1>TimeTable</h1>
+			<p>1. select your workhours for today:
+				<br>today:
+			</p>
+				<div class="row">
 				<div class="contentWrapper">
-					<div class="content">
-            			<h1>Timetable</h1>
+					<div id="content" class="content">
+					
+					<div class="w-1/3 arrival">
+						<div class="arrivalInput">
+						<label class="w-1/4" for="arrivalInput"><h3>Arrival:</h3></label>
+						<input class="w-3/4" type="text" name="arrivalInput" id="arrivalInput">
+						</div>
+					</div>
+
+					<div class="w-1/3 break">
+						<div class="breakInput">
+						<label class="w-1/4" for="breakInput"><h3>Break:</h3></label>
+						<input class="w-3/4" type="text" name="breakInput" id="breakInput">
+						</div>
+					</div>
+
+					<div class="w-1/3 start">
+						<div class="startInput">
+						<label class="w-1/4" for="startInput"><h3>Break end:</h3></label>
+						<input class="w-3/4" type="text" name="startInput" id="startInput">
+						</div>
+					</div>
+
+					<div class="w-1/3 departure">
+						<div class="departureInput">
+						<label class="w-1/4" for="departureInput"><h3>End:</h3></label>
+						<input class="w-3/4" type="text" name="departureInput" id="departureInput">
+						</div>
+					</div>
 					</div>
 				</div>
+				</div>
+
+				<div class="row">
+				<div class="contentWrapper">
+					<div id="content" class="content">
+					<div class="table">
+						<table>
+						<thead>
+							<tr>
+							<th class="bg">day</th>
+							<th class="bg">start</th>
+							<th class="bg">end</th>
+							<th class="bg">break</th>
+							<th class="bg">Net</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="row-1">
+							<th class="bg">Monday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet1"></td></tr>
+							<tr id="row-2">
+							<th class="bg">Tuesday</th>
+							<td class="t-start"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet2"></td>
+							</tr>                    
+							<tr id="row-3">
+							<th class="bg">Wednesday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet3"></td>
+							</tr>
+							<tr id="row-4">
+							<th class="bg">Thursday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet4"></td>
+							</tr>
+							<tr id="row-5">
+							<th class="bg">Friday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet5"></td>
+							</tr>
+							<tr id="row-6">
+							<th class="bg">Saturday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet6"></td>
+							</tr>
+							<tr id="row-0">
+							<th class="bg">Sunday</th>
+							<td class="todayStart"></td>
+							<td class="todayEnd"></td>
+							<td class="todayBreak"></td>
+							<td class="todayNet" id="todayNet0"></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+							<th>Total hours this week:</th>
+							<td class="weekTotal" id="weekTotal"></td>
+							</tr>
+						</tfoot>
+						</table>
+					</div>
+					</div>
+				</div>
+				</div>
 			</div>
+
         `;
 
+		// Luister naar alle inputs tegelijk
+		const inputIds = ['arrivalInput', 'breakInput', 'startInput', 'departureInput'];
+			inputIds.forEach(function(id) {
+				document.getElementById(id).addEventListener('keyup', table);
+			});
+			// Functie die de tabel bijwerkt voor de dag van vandaag
+		function table() {
+			var dayCode = new Date().getDay(); //beter
+				// var today = new Date();
+				// var dayCode = today.getDay(); // 0-6 = zondag-maandag-...
+				var row = document.getElementById('row-' + dayCode);
+
+				if(row) {
+					// get values from inputs
+					var arrival = document.getElementById('arrivalInput').value;
+					var breakEnd = document.getElementById('startInput').value;
+					var breakStart = document.getElementById('breakInput').value;
+					var end = document.getElementById('departureInput').value;
+					var breakTime = breakEnd - breakStart;
+					var net = (end - arrival) - breakTime;
+
+					for (i = 0; i <= 6; i++) {
+					var weekTotal = 0
+					// console.log('todayNet' + i);
+					dayTotal = document.getElementById('todayNet' + dayCode).innerHTML;
+					// console.log(dayTotal);
+					weekTotal += parseInt(dayTotal);
+					// console.log('week total: ' + weekTotal);
+					}
+				
+
+					// Put data in today's rows
+					row.querySelector('.todayStart').innerHTML = arrival;
+					row.querySelector('.todayEnd').innerHTML = end;
+					row.querySelector('.todayBreak').innerHTML = breakTime;
+					row.querySelector('.todayNet').innerHTML = net;
+					document.getElementById('weekTotal').innerHTML = weekTotal;
+				}
+			
+		}
+		
+		
+
+		const dayData = [
+			{arrival: document.getElementById('arrivalInput').value,
+			breakStart: document.getElementById('breakInput').value,
+			breakEnd: document.getElementById('startInput').value,
+			breakTime: breakEnd - breakStart,
+			net: (end - arrival) - breakTime},
+			dayTotal = document.getElementById('todayNet' + i).innerHTML,
+			weekTotal = weekTotal + parseInt(dayTotal)
+		]
+
+		async function setDayData(){
+			await Neutralino.storage.setData('dayData', JSON.stringify(dayData));
+		}
+		console.log(logsetDayData()); 
+
+		async function getDayData(){
+			let data = await Neutralino.storage.getData('dayData');
+			return data
+		}
+		console.log(getDayData());
 
     }else if(newPage == 'HRHTML'){
         
