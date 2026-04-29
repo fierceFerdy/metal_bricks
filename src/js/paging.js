@@ -459,7 +459,7 @@ function changePage(page){
 		`;
 	}else if(newPage == 'userPageHTML'){
 		document.getElementById('content').innerHTML = `
-			<h1 id="variableGreeting">Good evening</h1>
+			<h1 class ="w-1" id="variableGreeting">Good evening</h1>
 			<!-- Two sections parting page centrally -->
 				<!-- 1. Displays current day and month appointment overview with just the day displaying in a different color if something is happening then-->
 			<div class="w-1/2">
@@ -512,217 +512,294 @@ function changePage(page){
 					</div>
 				</div>
 			</div>
+			<hr>
 			<!-- Appointments section: add appointment button next to header -->
+			<div id="appointmentShrinky">
+				<h1 class="w-1/4">Appointments <button id="addAppointmentButton" style="font-size: 21px;">+</button></h1>
+				<div id="listOfUpcomingAppointments"> <!-- has a fixed height, and is scrollable-->
+					<!-- moet gefetched worden uit storage -->
+					<!-- moet ook via js worden toegevoegd -->
+					<div class="appointment" style="display: none;">
+						<p>Today</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+						<div class="appointmentInfoContainer, bg">
+							<h3 id="appointmentTitle">Title of the sppointment</h3>
+							<p>time planned</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="createAAppointment bg w-2/5" id="createAAppointment" style="display: none; vertical-align: top;">
+				<h1>Book an Appointment</h1>
+				<label for="dateInput" class="w-1/3">Date*:</label>
+				<input type="text" name="dateInput", id="dateInput" class="w-2/3" required>
+				<label for="titleInput" class="w-1/3">Title*:</label>
+				<input type="text" name="titleInput", id="titleInput" class="w-2/3" required>
+				<label for="hourInput" class="w-1/3">Hour*:</label>
+				<input type="text" name="hourInput", id="hourInput" class="w-2/3" required>
+				<button class="btn black w-1/1">Add</button>
+			</div>
 			<!-- Then again 2 sections though the seconds one is hidden at first -->
 				<!-- 1. Lists the appointments appointments by date  -->
-
-		<script src="storage.js"></script>
-
-
-		<script>
-
-			variableGreeting
-
-			var today = new Date();
-			
-			var currentMonthCode = today.getMonth();
-			var currentMonth = turnMonthCodeIntoWord(currentMonthCode);
-			
-			greetings = new Array('Hello', 'Welcome', 'Oi', 'Greetings', 'Good day!', 'Hey', 'Yo!', 'Got plans?', 'Terraria is 2d Minecraft')
-
-
-			
-			//'Wat is rood bubbelt en luid?' 'een baby in de microgolf'.
-			
-			document.getElementById('variableGreeting').innerHTML = greetings[getRandomInt(greetings.length)];
-			document.getElementById('currentDay').innerHTML = turnDayCodeIntoWord(today.getDay());
-			document.getElementById('monthDayDisplay').innerHTML = currentMonth + ' ' + today.getDate();
-
-			var currentYear = today.getYear() + 1900
-			
-			
-			var firstDayOfTheMonthString = String(currentYear) + '-' + String(currentMonthCode + 1) + '-1';
-			var firstOfTheMonth = new Date(firstDayOfTheMonthString)
-			var firstDayOfTheMonth = firstOfTheMonth.getDay();
-			
-			// document.getElementById('calendarBody').innerHTML += '<tr>';
-			amountOfSpacesOnCalendar = 0
-			var tr = document.createElement('tr');
-
-				for (let index = 0; index < firstDayOfTheMonth; index++) {
-					tr.innerHTML += '<td></td>';
-					amountOfSpacesOnCalendar++
-				}
-			document.getElementById('calendarBody').appendChild(tr);
+				`
 				
-			var daysInMonth = getDaysInMonth(currentYear, currentMonthCode + 1)
-
-				for (let index = 1; index <= daysInMonth; index++) {
-
-					if(amountOfSpacesOnCalendar % 7 != 0){
-
-						if(index < today.getDate()){
-							tr.innerHTML += '<td style="opacity: .6;">' + String(index) + '</td>' 
+				var today = new Date();
+    
+				var currentMonthCode = today.getMonth();
+				var currentMonth = turnMonthCodeIntoWord(currentMonthCode);
+				
+				greetings = new Array('Hello', 'Welcome', 'Oi', 'Greetings', 'Good day!', 'Hey', 'Yo!', 'Got plans?', 'Terraria is 2d Minecraft')
+			
+			
+				
+				//'Wat is rood bubbelt en luid?' 'een baby in de microgolf'.
+				
+				document.getElementById('variableGreeting').innerHTML = greetings[getRandomInt(greetings.length)];
+				document.getElementById('currentDay').innerHTML = turnDayCodeIntoWord(today.getDay());
+				document.getElementById('monthDayDisplay').innerHTML = currentMonth + ' ' + today.getDate();
+			
+				var currentYear = today.getYear() + 1900
+				
+				
+				var firstDayOfTheMonthString = String(currentYear) + '-' + String(currentMonthCode + 1) + '-1';
+				var firstOfTheMonth = new Date(firstDayOfTheMonthString)
+				var firstDayOfTheMonth = firstOfTheMonth.getDay();
+				
+				// document.getElementById('calendarBody').innerHTML += '<tr>';
+				amountOfSpacesOnCalendar = 0
+				var tr = document.createElement('tr');
+			
+					for (let index = 0; index < firstDayOfTheMonth; index++) {
+						tr.innerHTML += '<td></td>';
+						amountOfSpacesOnCalendar++
+					}
+				document.getElementById('calendarBody').appendChild(tr);
+					
+				var daysInMonth = getDaysInMonth(currentYear, currentMonthCode + 1)
+			
+					for (let index = 1; index <= daysInMonth; index++) {
+			
+						if(amountOfSpacesOnCalendar % 7 != 0){
+			
+							if(index < today.getDate()){
+								tr.innerHTML += '<td style="opacity: .6;">' + String(index) + '</td>' 
+							}else{
+								tr.innerHTML += '<td>' + String(index) + '</td>' 
+							}
+			
 						}else{
-							tr.innerHTML += '<td>' + String(index) + '</td>' 
+			
+							document.getElementById('calendarBody').appendChild(tr);
+							tr = document.createElement('tr');
+							
+							if(index < today.getDate()){
+								tr.innerHTML += '<td style="opacity: .6;">' + String(index) + '</td>' 
+							}else{
+								tr.innerHTML += '<td>' + String(index) + '</td>' 
+							}
+			
 						}
-
-					}else{
-
 						document.getElementById('calendarBody').appendChild(tr);
-						tr = document.createElement('tr');
-						
-						if(index < today.getDate()){
-							tr.innerHTML += '<td style="opacity: .6;">' + String(index) + '</td>' 
-						}else{
-							tr.innerHTML += '<td>' + String(index) + '</td>' 
-						}
-
-					}
-					document.getElementById('calendarBody').appendChild(tr);
-					amountOfSpacesOnCalendar++
-				}
-				
-
-				//Make it so when the button is pressed, it opens the 'Add To-do page'
-				addToDoActive = false;
-				document.getElementById('addToDoButton').addEventListener('click', function(){
-					if(!addToDoActive){
-						document.getElementById('createATodo').style.display = 'block';
-						addToDoActive = true;
-					}else{
-						document.getElementById('createATodo').style.display = 'none';
-						addToDoActive = false;
-					}
-				})
-				
-				
-				// Displaying upcoming todos from storage
-			
-				// Data: 
-				const Todos = [
-					{
-						TodoID: 1,
-						title: 'Very good title for a todo',
-						description: 'Lorem Ipsum dolor sit amet,...',
-						user: 0,
-						deadlineDate: '30/4/2026',
-						deadlineTime: '17:30',
-					},
-					{
-						TodoID: 2,
-						title: 'Very good title for a todo 2',
-						description: 'Lorem Ipsum dolor sit amet,...',
-						user: 0,
-						deadlineDate: '8/5/2026',
-						deadlineTime: '13:30',
-					},
-					{
-						TodoID: 3,
-						title: 'Very good title for a todo 3',
-						description: 'Lorem Ipsum dolor sit amet,...',
-						user: 0,
-						deadlineDate: '18/5/2026',
-						deadlineTime: '14:30',
-					},
-					{
-						TodoID: 4,
-						title: 'Very good title for a todo 4',
-						description: 'Lorem Ipsum dolor sit amet,...',
-						user: 1,
-						deadlineDate: '23/5/2026',
-						deadlineTime: '11:00',
-					},
-					{
-						TodoID: 5,
-						title: 'Very good title for a todo 5',
-						description: 'Lorem Ipsum dolor sit amet,...',
-						user: 2,
-						deadlineDate: '25/5/2026',
-						deadlineTime: '13:00',
-					},
-					{
-						TodoID: 6,
-						title: 'Very good title for a todo 6',
-						description: 'Lorem Ipsum dolor sit amet,...',
-						user: 0,
-						deadlineDate: '30/5/2026',
-						deadlineTime: '17:00',
-					},
-				];
-
-				// TODO: Date still needs to work properly, The todos should automatically be ordered by time and todos from the past should dissapear.
-				for (let index = 0; index < Todos.length; index++) {
-					if(Todos[index].user == 0){
-						document.getElementById('listOfUpcomingTodos').innerHTML += '
-							<div class="toDo">
-								<p>'+ Todos[index].deadlineDate +'</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
-								<div class="toDoInfoContainer, bg">
-									<h3 id="todoTitle">'+ Todos[index].title +'</h3>
-									<p>'+ Todos[index].deadlineTime +'</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
-								</div>
-							</div>
-						'
+						amountOfSpacesOnCalendar++
 					}
 					
+			
+					//Make it so when the button is pressed, it opens the 'Add To-do page'
+					addToDoActive = false;
+					document.getElementById('addToDoButton').addEventListener('click', function(){
+						if(!addToDoActive){
+							document.getElementById('createATodo').style.display = 'block';
+							addToDoActive = true;
+						}else{
+							document.getElementById('createATodo').style.display = 'none';
+							addToDoActive = false;
+						}
+					})
+					
+					
+					// Displaying upcoming todos from storage
+				   
+					// Data: 
+					const Todos = [
+						{
+							TodoID: 1,
+							title: 'Very good title for a todo',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '30/4/2026',
+							deadlineTime: '17:30',
+						},
+						{
+							TodoID: 2,
+							title: 'Very good title for a todo 2',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '8/5/2026',
+							deadlineTime: '13:30',
+						},
+						{
+							TodoID: 3,
+							title: 'Very good title for a todo 3',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '18/5/2026',
+							deadlineTime: '14:30',
+						},
+						{
+							TodoID: 4,
+							title: 'Very good title for a todo 4',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 1,
+							deadlineDate: '23/5/2026',
+							deadlineTime: '11:00',
+						},
+						{
+							TodoID: 5,
+							title: 'Very good title for a todo 5',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 2,
+							deadlineDate: '25/5/2026',
+							deadlineTime: '13:00',
+						},
+						{
+							TodoID: 6,
+							title: 'Very good title for a todo 6',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '30/5/2026',
+							deadlineTime: '17:00',
+						},
+					];
+					const Appointments = [
+						{
+							id: 1,
+							title: 'Very good title for an appointment',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '30/4/2026',
+							deadlineTime: '17:30',
+						},
+						{
+							id: 2,
+							title: 'Very good title for an appointment 2',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							deadlineDate: '8/5/2026',
+							deadlineTime: '13:30',
+						},
+						{
+							id: 3,
+							title: 'Very good title for an appointment 3',
+							description: 'Lorem Ipsum dolor sit amet,...',
+							user: 0,
+							Date: '18/5/2026',
+							Time: '14:30',
+						},
+					];
+			
+			
+					// TODO: Date still needs to work properly, The todos should automatically be ordered by time and todos from the past should dissapear.
+					for (let index = 0; index < Todos.length; index++) {
+						if(Todos[index].user == 0){
+							document.getElementById('listOfUpcomingTodos').innerHTML += `
+								<div class="toDo">
+									<p>`+ Todos[index].deadlineDate +`</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+									<div class="toDoInfoContainer, bg">
+										<h3 id="todoTitle">`+ Todos[index].title +`</h3>
+										<p>`+ Todos[index].deadlineTime +`</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+									</div>
+								</div>
+							`
+						}
+						
+					}
+					
+					
+					//Make it so when the button is pressed, it opens the 'Add appointment page'
+					addAppointmentActive = false;
+					document.getElementById('addAppointmentButton').addEventListener('click', function(){
+						if(!addAppointmentActive){
+							document.getElementById('createAAppointment').style.display = 'inline-block';
+							document.getElementById('appointmentShrinky').classList.add('w-1/2');
+							console.log('shrinky')
+							addAppointmentActive = true;
+						}else{
+							document.getElementById('createAAppointment').style.display = 'none';
+							document.getElementById('appointmentShrinky').classList.add('w-2/4');
+							addAppointmentActive = false;
+						}
+					})
+					// TODO: Date still needs to work properly, The todos should automatically be ordered by time and todos from the past should dissapear.
+					for (let index = 0; index < Appointments.length; index++) {
+						if(Appointments[index].user == 0){
+							document.getElementById('listOfUpcomingAppointments').innerHTML += `
+								<div class="Appointment w-1">
+									<p>`+ Appointments[index].deadlineDate +`</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+									<div class="appointmentInfoContainer, bg">
+										<h3 id="appointmentTitle">`+ Appointments[index].title +`</h3>
+										<p>`+ Appointments[index].deadlineTime +`</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+									</div>
+								</div>
+							`
+						}
+						
+					}               
+			
+				function turnMonthCodeIntoWord(currentMonthCode){
+					if(currentMonthCode == 0){
+						return 'January';
+					}else if(currentMonthCode == 1){
+						return 'February';
+					}else if(currentMonthCode == 2){
+						return 'March';
+					}else if(currentMonthCode == 3){
+						return'April';
+					}else if(currentMonthCode == 4){
+						return 'May';
+					}else if(currentMonthCode == 5){
+						return 'June';
+					}else if(currentMonthCode == 6){
+						return 'July';
+					}else if(currentMonthCode == 7){
+						return 'August';
+					}else if(currentMonthCode == 8){
+						return 'September';
+					}else if(currentMonthCode == 9){
+						return 'October';
+					}else if(currentMonthCode == 10){
+						return 'November';
+					}else if(currentMonthCode == 11){
+						return 'December';
+					}
 				}
-
-			function turnMonthCodeIntoWord(currentMonthCode){
-				if(currentMonthCode == 0){
-					return 'January';
-				}else if(currentMonthCode == 1){
-					return 'February';
-				}else if(currentMonthCode == 2){
-					return 'March';
-				}else if(currentMonthCode == 3){
-					return'April';
-				}else if(currentMonthCode == 4){
-					return 'May';
-				}else if(currentMonthCode == 5){
-					return 'June';
-				}else if(currentMonthCode == 6){
-					return 'July';
-				}else if(currentMonthCode == 7){
-					return 'August';
-				}else if(currentMonthCode == 8){
-					return 'September';
-				}else if(currentMonthCode == 9){
-					return 'October';
-				}else if(currentMonthCode == 10){
-					return 'November';
-				}else if(currentMonthCode == 11){
-					return 'December';
+			
+				function turnDayCodeIntoWord(currentDayCode){
+					if(currentDayCode == 0){
+						return 'Sunday';
+					}else if(currentDayCode == 1){
+						return 'Monday';
+					}else if(currentDayCode == 2){
+						return 'Tuesday';
+					}else if(currentDayCode == 3){
+						return 'Wednesday';
+					}else if(currentDayCode == 4){
+						return 'Thursday';
+					}else if(currentDayCode == 5){
+						return 'Friday';
+					}else if(currentDayCode == 6){
+						return 'Saturday';
+					}
 				}
-			}
-
-			function turnDayCodeIntoWord(currentDayCode){
-				if(currentDayCode == 0){
-					return 'Sunday';
-				}else if(currentDayCode == 1){
-					return 'Monday';
-				}else if(currentDayCode == 2){
-					return 'Tuesday';
-				}else if(currentDayCode == 3){
-					return 'Wednesday';
-				}else if(currentDayCode == 4){
-					return 'Thursday';
-				}else if(currentDayCode == 5){
-					return 'Friday';
-				}else if(currentDayCode == 6){
-					return 'Saturday';
+			
+				function getDaysInMonth(year, month) {
+					return new Date(year, month, 0).getDate();
 				}
-			}
+			
+				function getRandomInt(max) {
+					return Math.floor(Math.random() * max);
+				}
+				//TODO: dit aanpassen zodat het deze data uit neutralino storage haalt (momenteel is het enkel op deze manier zodat het via liveserver kan getoont worden.)
+			
 
-			function getDaysInMonth(year, month) {
-				return new Date(year, month, 0).getDate();
-			}
-
-			function getRandomInt(max) {
-				return Math.floor(Math.random() * max);
-			}
-			//TODO: dit aanpassen zodat het deze data uit neutralino storage haalt (momenteel is het enkel op deze manier zodat het via liveserver kan getoont worden.)
-
-		</script>`	
 	}else{
         document.getElementById('content').innerHTML = `
         <h1> 404 PAGE NOT FOUND 404</h1>

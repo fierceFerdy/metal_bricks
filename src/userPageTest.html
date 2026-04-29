@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/_scss/style.css">
 </head>
 <body>
-     <h1 id="variableGreeting">Good evening</h1>
+     <h1 class ="w-1" id="variableGreeting">Good evening</h1>
     <!-- Two sections parting page centrally -->
         <!-- 1. Displays current day and month appointment overview with just the day displaying in a different color if something is happening then-->
     <div class="w-1/2">
@@ -61,7 +61,32 @@
             </div>
         </div>
     </div>
+    <hr>
     <!-- Appointments section: add appointment button next to header -->
+    <div id="appointmentShrinky" class=" w-1">
+        <h1 class="w-1/4">Appointments <button id="addAppointmentButton" style="font-size: 21px;">+</button></h1>
+        <div id="listOfUpcomingAppointments"> <!-- has a fixed height, and is scrollable-->
+            <!-- moet gefetched worden uit storage -->
+            <!-- moet ook via js worden toegevoegd -->
+            <div class="appointment" style="display: none;">
+                <p>Today</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+                <div class="appointmentInfoContainer, bg">
+                    <h3 id="appointmentTitle">Title of the sppointment</h3>
+                    <p>time planned</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="createAAppointment bg w-2/5" id="createAAppointment" style="display: none; vertical-align: top;">
+        <h1>Book an Appointment</h1>
+        <label for="dateInput" class="w-1/3">Select a coach/Boss/co-worker*:</label>
+        <input type="dropdown" name="dateInput", id="dateInput" class="w-2/3" required>
+        <label for="titleInput" class="w-1/3">Title*:</label>
+        <input type="text" name="titleInput", id="titleInput" class="w-2/3" required>
+        <label for="hourInput" class="w-1/3">Hour*:</label>
+        <input type="text" name="hourInput", id="hourInput" class="w-2/3" required>
+        <button class="btn black w-1/1">Add</button>
+    </div>
     <!-- Then again 2 sections though the seconds one is hidden at first -->
         <!-- 1. Lists the appointments appointments by date  -->
 
@@ -69,8 +94,6 @@
 
 
 <script>
-
-    variableGreeting
 
     var today = new Date();
     
@@ -199,6 +222,33 @@
                 deadlineTime: '17:00',
             },
         ];
+        const Appointments = [
+            {
+                id: 1,
+                title: 'Very good title for an appointment',
+                description: 'Lorem Ipsum dolor sit amet,...',
+                user: 0,
+                deadlineDate: '30/4/2026',
+                deadlineTime: '17:30',
+            },
+            {
+                id: 2,
+                title: 'Very good title for an appointment 2',
+                description: 'Lorem Ipsum dolor sit amet,...',
+                user: 0,
+                deadlineDate: '8/5/2026',
+                deadlineTime: '13:30',
+            },
+            {
+                id: 3,
+                title: 'Very good title for an appointment 3',
+                description: 'Lorem Ipsum dolor sit amet,...',
+                user: 0,
+                Date: '18/5/2026',
+                Time: '14:30',
+            },
+        ];
+
 
         // TODO: Date still needs to work properly, The todos should automatically be ordered by time and todos from the past should dissapear.
         for (let index = 0; index < Todos.length; index++) {
@@ -215,6 +265,39 @@
             }
             
         }
+        
+        
+        //Make it so when the button is pressed, it opens the 'Add appointment page'
+        addAppointmentActive = false;
+        document.getElementById('addAppointmentButton').addEventListener('click', function(){
+            if(!addAppointmentActive){
+                document.getElementById('createAAppointment').style.display = 'inline-block';
+                document.getElementById('appointmentShrinky').classList.add('w-1/2');
+                document.getElementById('appointmentShrinky').classList.remove('w-1');
+                console.log('shrinky')
+                addAppointmentActive = true;
+            }else{
+                document.getElementById('createAAppointment').style.display = 'none';
+                document.getElementById('appointmentShrinky').classList.remove('w-1/2');
+                document.getElementById('appointmentShrinky').classList.add('w-1');
+                addAppointmentActive = false;
+            }
+        })
+        // TODO: Date still needs to work properly, The todos should automatically be ordered by time and todos from the past should dissapear.
+        for (let index = 0; index < Appointments.length; index++) {
+            if(Appointments[index].user == 0){
+                document.getElementById('listOfUpcomingAppointments').innerHTML += `
+                    <div class="Appointment w-1">
+                        <p>`+ Appointments[index].deadlineDate +`</p> <!-- The day at which it's due, in style of: today, tomorrow, Friday, Dec 12-->
+                        <div class="appointmentInfoContainer, bg">
+                            <h3 id="appointmentTitle">`+ Appointments[index].title +`</h3>
+                            <p>`+ Appointments[index].deadlineTime +`</p> <!-- not sure if this part is needed, maybe it could be just a description of the to do task, and you could put this in there if you want -->
+                        </div>
+                    </div>
+                `
+            }
+            
+        }               
 
     function turnMonthCodeIntoWord(currentMonthCode){
         if(currentMonthCode == 0){
